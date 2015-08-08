@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Properties\Client.lsml" Checksum="537C92C1BA2B46E072FF7A68944495830B0181EE18BEB6E6C2868FF7EF4D31CD" />
+    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Properties\Proxies.lsml" Checksum="61A172D2636E92756B5B9CC537CB5551A36D1FA661CBC20D986BBB6BC8EA88A1" />
+  </Documents>
+</ModelDocumentManifest>
