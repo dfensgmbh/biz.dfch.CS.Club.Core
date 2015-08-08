@@ -18,8 +18,13 @@
  */
 
 using System;
+using System.Configuration;
+using System.Net;
+using System.Web;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using biz.dfch.CS.Club.Core.Server;
+using LightSwitchApplication;
+using Telerik.JustMock.Helpers;
 
 namespace biz.dfch.CS.Club.Core.Server.Tests
 {
@@ -29,7 +34,21 @@ namespace biz.dfch.CS.Club.Core.Server.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            Assert.Inconclusive("this test is work in progress");
+            ServerApplicationContext ctx = null;
+            var ctxCreated = false;
+            if (null == ServerApplicationContext.Current)
+            {
+                ctxCreated = true;
+                ctx = ServerApplicationContext.CreateContext();
+            }
+            Assert.IsNotNull(ctx);
+
+            if (null != ctxCreated && !ctx.IsDisposed)
+            {
+                ctx.Dispose();
+            }
+
+            Assert.IsTrue(ctx.Application.User.IsAuthenticated);
         }
     }
 }

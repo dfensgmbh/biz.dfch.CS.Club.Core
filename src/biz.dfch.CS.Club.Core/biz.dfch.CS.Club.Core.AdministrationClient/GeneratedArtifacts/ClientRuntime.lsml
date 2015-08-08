@@ -26,10 +26,12 @@
       </EntityContainerGroupProperty.Attributes>
     </EntityContainerGroupProperty>
   </EntityContainerGroup>
-  <GlobalAttributeGroup>
+  <GlobalAttributeGroup
+    Name="LightSwitchServiceApplicationGroup">
     <GlobalAttributeGroup.Attributes>
-      <Proxy
-        Target="ServiceInterface:LightSwitchServiceApplicationGroup" />
+      <AutomaticDisplayName
+        Expression="(\p{Ll})(\p{Lu})|_+"
+        Replacement="$1 $2" />
     </GlobalAttributeGroup.Attributes>
   </GlobalAttributeGroup>
   <Application.NavigationItems>

@@ -35,7 +35,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.LightSwitch">
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft SDKs\LightSwitch\v4.5\Client\Microsoft.LightSwitch.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.LightSwitch.Server">
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft SDKs\LightSwitch\v4.5\Server\Microsoft.LightSwitch.Server.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Web" />
     <Reference Include="Telerik.JustMock">
       <HintPath>../JustMock/Telerik.JustMock.dll</HintPath>
     </Reference>
@@ -55,6 +62,12 @@
   <ItemGroup>
     <Compile Include="ServerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.Server\biz.dfch.CS.Club.Core.Server.csproj">
+      <Project>{be8b41fc-bcff-4690-badd-75a8afdeee92}</Project>
+      <Name>biz.dfch.CS.Club.Core.Server</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
