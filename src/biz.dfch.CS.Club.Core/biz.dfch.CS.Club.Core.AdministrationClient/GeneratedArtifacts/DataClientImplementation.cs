@@ -10,6 +10,123 @@
 namespace LightSwitchApplication.Implementation
 {
     
+    #region Member
+    [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/ApplicationData.Implementation")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "12.1.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class Member :
+        global::LightSwitchApplication.Member.DetailsClass.IImplementation
+    {
+        partial void OnIdChanged()
+        {
+            this.___OnPropertyChanged("Id");
+        }
+        
+        partial void OnFirstNameChanged()
+        {
+            this.___OnPropertyChanged("FirstName");
+        }
+        
+        partial void OnLastNameChanged()
+        {
+            this.___OnPropertyChanged("LastName");
+        }
+        
+        partial void OnBirthdayChanged()
+        {
+            this.___OnPropertyChanged("Birthday");
+        }
+        
+        partial void OnAddress1Changed()
+        {
+            this.___OnPropertyChanged("Address1");
+        }
+        
+        partial void OnAddress2Changed()
+        {
+            this.___OnPropertyChanged("Address2");
+        }
+        
+        partial void OnAddress3Changed()
+        {
+            this.___OnPropertyChanged("Address3");
+        }
+        
+        partial void OnPostalCodeChanged()
+        {
+            this.___OnPropertyChanged("PostalCode");
+        }
+        
+        partial void OnCityChanged()
+        {
+            this.___OnPropertyChanged("City");
+        }
+        
+        partial void OnStateChanged()
+        {
+            this.___OnPropertyChanged("State");
+        }
+        
+        partial void OnCountryChanged()
+        {
+            this.___OnPropertyChanged("Country");
+        }
+        
+        partial void OnMobileNumberChanged()
+        {
+            this.___OnPropertyChanged("MobileNumber");
+        }
+        
+        partial void OnCreatedByChanged()
+        {
+            this.___OnPropertyChanged("CreatedBy");
+        }
+        
+        partial void OnCreatedChanged()
+        {
+            this.___OnPropertyChanged("Created");
+        }
+        
+        partial void OnModifiedByChanged()
+        {
+            this.___OnPropertyChanged("ModifiedBy");
+        }
+        
+        partial void OnModifiedChanged()
+        {
+            this.___OnPropertyChanged("Modified");
+        }
+        
+        partial void OnRowVersionChanged()
+        {
+            this.___OnPropertyChanged("RowVersion");
+        }
+        
+    }
+    #endregion
+    
+    #region ApplicationData
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "12.1.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class ApplicationData
+    {
+        protected override global::Microsoft.LightSwitch.Internal.IEntityImplementation CreateEntityImplementation<T>()
+        {
+            if (typeof(T) == typeof(global::LightSwitchApplication.Member))
+            {
+                return new global::LightSwitchApplication.Implementation.Member();
+            }
+            return null;
+        }
+        
+        protected override void InitializeDataServiceContext()
+        {
+            this.Format.LoadServiceModel = global::LightSwitchApplication.Implementation.ApplicationData.GeneratedEdmModel.GetInstance;
+            this.Format.UseJson();
+        }
+    }
+    #endregion
+    
     #region DataServiceImplementationFactory
     [global::System.ComponentModel.Composition.PartCreationPolicy(global::System.ComponentModel.Composition.CreationPolicy.Shared)]
     [global::System.ComponentModel.Composition.Export(typeof(global::Microsoft.LightSwitch.Internal.IDataServiceFactory))]
@@ -21,11 +138,19 @@ namespace LightSwitchApplication.Implementation
     
         protected override global::Microsoft.LightSwitch.IDataService CreateDataService(global::System.Type dataServiceType)
         {
+            if (dataServiceType == typeof(global::LightSwitchApplication.ApplicationData))
+            {
+                return new global::LightSwitchApplication.ApplicationData();
+            }
             return base.CreateDataService(dataServiceType);
         }
     
         protected override global::Microsoft.LightSwitch.Internal.IDataServiceImplementation CreateDataServiceImplementation<TDataService>(TDataService dataService)
         {
+            if (typeof(TDataService) == typeof(global::LightSwitchApplication.ApplicationData))
+            {
+                return new global::LightSwitchApplication.Implementation.ApplicationData(global::Microsoft.LightSwitch.ClientGenerated.Implementation.DataServiceContext.CreateServiceUri("../../ApplicationData.svc"));
+            }
             return base.CreateDataServiceImplementation(dataService);
         }
     }
@@ -40,6 +165,10 @@ namespace LightSwitchApplication.Implementation
     {
         global::System.Type global::Microsoft.LightSwitch.Internal.ITypeMappingProvider.GetImplementationType(global::System.Type definitionType)
         {
+            if (typeof(global::LightSwitchApplication.Member) == definitionType)
+            {
+                return typeof(global::LightSwitchApplication.Implementation.Member);
+            }
             return null;
         }
     }

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.biz.dfch.CS.Club.Core.HTMLClient" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:Member" />
+      <DefaultScreen
+        Value="ViewMember">
+        <DefaultScreen.Attributes>
+          <ScreenParameterMapping
+            ScreenParameter="ViewMember/Properties[Member]" />
+        </DefaultScreen.Attributes>
+      </DefaultScreen>
+    </EntityType.Attributes>
+  </EntityType>
+</Application>

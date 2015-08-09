@@ -11,5 +11,265 @@ namespace LightSwitchApplication
 {
     #region Data Services
     
+    /// <summary>
+    /// Provides members to query and update data in the ApplicationData datasource.
+    /// </summary>
+    public sealed partial class ApplicationDataService
+        : global::LightSwitchApplication.ApplicationData
+    {
+        #region Constructors
+    
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "12.1.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public ApplicationDataService() : base()
+        {
+        }
+    
+        #endregion
+    
+        #region Private Properties
+        
+        /// <summary>
+        /// Gets the Application object for this application.  The Application object provides access to active screens, methods to open screens and access to the current user.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "12.1.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::LightSwitchApplication.Application Application
+        {
+            get
+            {
+                return global::LightSwitchApplication.Application.Current;
+            }
+        }
+        
+        /// <summary>
+        /// Gets the containing data workspace.  The data workspace provides access to all data sources in the application.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "12.1.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::LightSwitchApplication.DataWorkspace DataWorkspace
+        {
+            get
+            {
+                return (global::LightSwitchApplication.DataWorkspace)this.Details.DataWorkspace;
+            }
+        }
+        
+        #endregion
+    
+        #region Server Interceptions Points
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Members_CanInsert(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Members_CanUpdate(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Members_CanDelete(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Members_CanRead(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Members_Inserting(global::LightSwitchApplication.Member entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Members_Inserted(global::LightSwitchApplication.Member entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Members_Updating(global::LightSwitchApplication.Member entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Members_Updated(global::LightSwitchApplication.Member entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Members_Deleting(global::LightSwitchApplication.Member entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Members_Deleted(global::LightSwitchApplication.Member entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Members_Validate(global::LightSwitchApplication.Member entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Members_Filter(ref global::System.Linq.Expressions.Expression<global::System.Func<global::LightSwitchApplication.Member, bool>> filter);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SaveChanges_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SaveChanges_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SaveChanges_Executed();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SaveChanges_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Query_Executing(global::Microsoft.LightSwitch.QueryExecutingDescriptor queryDescriptor);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Query_Executed(global::Microsoft.LightSwitch.QueryExecutedDescriptor queryDescriptor);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Query_ExecuteFailed(global::Microsoft.LightSwitch.QueryExecuteFailedDescriptor queryDescriptor);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ApplicationData_InitializingConnection(global::Microsoft.LightSwitch.DatabaseConnectionState state);
+    
+        #endregion
+    
+        #region Details Class
+    
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
+        public static new class DetailsClass
+        {
+    
+            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1810:InitializeReferenceTypeStaticFieldsInline")]
+            static DetailsClass()
+            {
+            }
+            
+            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.ApplicationDataService, global::LightSwitchApplication.Member>
+                __MembersEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.ApplicationDataService, global::LightSwitchApplication.Member>(
+                    "Members",
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__Members_CanInsert,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__Members_CanUpdate,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__Members_CanDelete,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__Members_CanRead,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__Members_Inserting,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__Members_Inserted,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__Members_Updating,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__Members_Updated,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__Members_Deleting,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__Members_Deleted,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__Members_Validate,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__Members_Filter);
+            private static bool __Members_CanInsert(global::LightSwitchApplication.ApplicationDataService d)
+            {
+                bool result = true;
+                d.Members_CanInsert(ref result);
+                return result;
+            }
+            private static bool __Members_CanUpdate(global::LightSwitchApplication.ApplicationDataService d)
+            {
+                bool result = true;
+                d.Members_CanUpdate(ref result);
+                return result;
+            }
+            private static bool __Members_CanDelete(global::LightSwitchApplication.ApplicationDataService d)
+            {
+                bool result = true;
+                d.Members_CanDelete(ref result);
+                return result;
+            }
+            private static bool __Members_CanRead(global::LightSwitchApplication.ApplicationDataService d)
+            {
+                bool result = true;
+                d.Members_CanRead(ref result);
+                return result;
+            }
+            private static void __Members_Inserting(global::LightSwitchApplication.ApplicationDataService d, global::LightSwitchApplication.Member e)
+            {
+                d.Members_Inserting(e);
+            }
+            private static void __Members_Inserted(global::LightSwitchApplication.ApplicationDataService d, global::LightSwitchApplication.Member e)
+            {
+                d.Members_Inserted(e);
+            }
+            private static void __Members_Updating(global::LightSwitchApplication.ApplicationDataService d, global::LightSwitchApplication.Member e)
+            {
+                d.Members_Updating(e);
+            }
+            private static void __Members_Updated(global::LightSwitchApplication.ApplicationDataService d, global::LightSwitchApplication.Member e)
+            {
+                d.Members_Updated(e);
+            }
+            private static void __Members_Deleting(global::LightSwitchApplication.ApplicationDataService d, global::LightSwitchApplication.Member e)
+            {
+                d.Members_Deleting(e);
+            }
+            private static void __Members_Deleted(global::LightSwitchApplication.ApplicationDataService d, global::LightSwitchApplication.Member e)
+            {
+                d.Members_Deleted(e);
+            }
+            private static void __Members_Validate(global::LightSwitchApplication.ApplicationDataService d, global::LightSwitchApplication.Member e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
+            {
+                d.Members_Validate(e, r);
+            }
+            private static global::System.Linq.Expressions.Expression<global::System.Func<global::LightSwitchApplication.Member, bool>> __Members_Filter(global::LightSwitchApplication.ApplicationDataService d)
+            {
+                global::System.Linq.Expressions.Expression<global::System.Func<global::LightSwitchApplication.Member, bool>> filter = null;
+                d.Members_Filter(ref filter);
+                return filter;
+            }
+            
+            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.OperationEntry<global::LightSwitchApplication.ApplicationDataService>
+                __SaveChangesEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.OperationEntry<global::LightSwitchApplication.ApplicationDataService>(
+                    "SaveChanges",
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__SaveChanges_CanExecute,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__SaveChanges_Executing,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__SaveChanges_Executed,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__SaveChanges_Failed);
+            private static bool __SaveChanges_CanExecute(global::LightSwitchApplication.ApplicationDataService d, bool r)
+            {
+                d.SaveChanges_CanExecute(ref r);
+                return r;
+            }
+            private static void __SaveChanges_Executing(global::LightSwitchApplication.ApplicationDataService d, object[] args)
+            {
+                d.SaveChanges_Executing();
+            }
+            private static void __SaveChanges_Executed(global::LightSwitchApplication.ApplicationDataService d, object[] args)
+            {
+                d.SaveChanges_Executed();
+            }
+            private static void __SaveChanges_Failed(global::LightSwitchApplication.ApplicationDataService d, object[] args, global::System.Exception ex)
+            {
+                d.SaveChanges_ExecuteFailed(ex);
+            }
+    
+            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryEntry<global::LightSwitchApplication.ApplicationDataService>
+                ___QueryEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryEntry<global::LightSwitchApplication.ApplicationDataService>(
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__Query_Executing,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__Query_Executed,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__Query_Failed);
+            private static void __Query_Executing(global::LightSwitchApplication.ApplicationDataService d, global::Microsoft.LightSwitch.QueryExecutingDescriptor queryDescriptor)
+            {
+                d.Query_Executing(queryDescriptor);
+            }
+            private static void __Query_Executed(global::LightSwitchApplication.ApplicationDataService d, global::Microsoft.LightSwitch.QueryExecutedDescriptor queryDescriptor)
+            {
+                d.Query_Executed(queryDescriptor);
+            }
+            private static void __Query_Failed(global::LightSwitchApplication.ApplicationDataService d, global::Microsoft.LightSwitch.QueryExecuteFailedDescriptor queryDescriptor)
+            {
+                d.Query_ExecuteFailed(queryDescriptor);
+            }
+    
+            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.DatabaseAuthEntry<global::LightSwitchApplication.ApplicationDataService>
+                ___DatabaseAuthEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.DatabaseAuthEntry<global::LightSwitchApplication.ApplicationDataService>(
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__ApplicationData_InitializingConnection);
+            private static void __ApplicationData_InitializingConnection(global::LightSwitchApplication.ApplicationDataService d, global::Microsoft.LightSwitch.DatabaseConnectionState state)
+            {
+                d.ApplicationData_InitializingConnection(state);
+            }
+        }
+    
+        #endregion
+    }
+    
     #endregion
 }

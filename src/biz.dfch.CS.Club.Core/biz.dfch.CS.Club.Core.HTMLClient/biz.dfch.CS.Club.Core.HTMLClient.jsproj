@@ -87,11 +87,15 @@
     </ServiceMetadataReference>
   </ItemGroup>
   <ItemGroup>
+    <LightSwitchModel Include="Properties\ApplicationData\Members.lsml" />
     <LightSwitchModel Include="Properties\Client.lsml">
       <ProjectCritical>true</ProjectCritical>
     </LightSwitchModel>
     <LightSwitchModel Include="Properties\Proxies.lsml" />
+    <LightSwitchModel Include="Screens\AddEditMember.lsml" />
+    <LightSwitchModel Include="Screens\BrowseMembers.lsml" />
     <LightSwitchModel Include="Screens\Home.lsml" />
+    <LightSwitchModel Include="Screens\ViewMember.lsml" />
   </ItemGroup>
   <ItemGroup>
     <_ClientBuildFile Include="GeneratedArtifacts\model.json">
