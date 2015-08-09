@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Documents>
-    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Properties\Client.lsml" Checksum="482A0A4D47421D9522AEFFC51FB1AF7A3A0D0BC6EA941F6414404AE66451DC76" />
-    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Screens\Home.lsml" Checksum="54E2080BB5082F9565077771DA78B9F0576A2CD16223CBBEE29E1DE3301597AF" />
-  </Documents>
-</ModelDocumentManifest>
