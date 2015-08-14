@@ -19,7 +19,7 @@
     <SignManifests>false</SignManifests>
     <BaseIntermediateOutputPath>bin</BaseIntermediateOutputPath>
     <ApplicationClientType>Browser</ApplicationClientType>
-    <ApplicationServerType>IIS</ApplicationServerType>
+    <ApplicationServerType>Azure</ApplicationServerType>
     <AuthenticationType>Forms</AuthenticationType>
     <ApplicationName>biz.dfch.CS.Club.Core</ApplicationName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -27,6 +27,35 @@
     <ServiceConfigurationFile>ServiceConfiguration.cscfg</ServiceConfigurationFile>
     <SqlExpressInstanceName>(LocalDB)\v11.0</SqlExpressInstanceName>
     <DefaultLanguage>en-US</DefaultLanguage>
+    <AdministratorFullName>Administrator</AdministratorFullName>
+    <AdministratorUserName>Administrator</AdministratorUserName>
+    <AllowUntrustedCertificate>False</AllowUntrustedCertificate>
+    <DeployDatabase>True</DeployDatabase>
+    <AddAdministrator>True</AddAdministrator>
+    <BootstrapperComponentsUrl />
+    <DefaultInstallLocation>biz.dfch.CS.Club.Core</DefaultInstallLocation>
+    <DeploySchema>True</DeploySchema>
+    <PublishNewDatabase>True</PublishNewDatabase>
+    <PublishUrl>membership-stufenbau-kulturverein-ch.scm.azurewebsites.net:443</PublishUrl>
+    <PublishSite>membership-stufenbau-kulturverein-ch</PublishSite>
+    <RemotePublish>True</RemotePublish>
+    <SkipExtraFilesOnServer>True</SkipExtraFilesOnServer>
+    <UseLightSwitchWebDeploymentProvider>False</UseLightSwitchWebDeploymentProvider>
+    <AzureAllowUpgrade>True</AzureAllowUpgrade>
+    <AzureAppendTimestampToDeploymentLabel>True</AzureAppendTimestampToDeploymentLabel>
+    <AzureDeploymentLabel>biz.dfch.CS.Club.Core</AzureDeploymentLabel>
+    <AzureWebSite>membership-stufenbau-kulturverein-ch</AzureWebSite>
+    <AzureWebSpace>NorthEuropewebspace</AzureWebSpace>
+    <AzureServiceType>WebSite</AzureServiceType>
+    <AzureHostedService />
+    <AzureHostedServiceLabel>Production</AzureHostedServiceLabel>
+    <AzureStorageService />
+    <SslCertificateThumbprint />
+    <PublishServiceOnly>False</PublishServiceOnly>
+    <AzureCredentials />
+    <SharePointServerToServerCertificatePath />
+    <SharePointServerToServerCertificateIssuerId />
+    <RequireSecureConnection>True</RequireSecureConnection>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>bin\Debug</OutputPath>
@@ -142,6 +171,16 @@
       <PublishType>
       </PublishType>
     </_BuildFile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Install>True</Install>
+      <Name>.NETFramework,Version=v4.0</Name>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Install>True</Install>
+      <Name>Microsoft.Windows.Installer.4.5</Name>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\LightSwitch\$(LightSwitchVersion)\Microsoft.LightSwitch.targets" />
 </Project>
