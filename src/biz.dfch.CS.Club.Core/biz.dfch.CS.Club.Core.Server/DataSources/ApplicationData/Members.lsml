@@ -50,6 +50,8 @@
         <EntityProperty.Attributes>
           <Required />
           <NotSearchable />
+          <StringValueFormat
+            Value="yyyy-MM-dd" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
@@ -96,14 +98,6 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="State"
-        PropertyType=":String?">
-        <EntityProperty.Attributes>
-          <MaxLength
-            Value="255" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
         Name="Country"
         PropertyType=":String">
         <EntityProperty.Attributes>
@@ -112,6 +106,10 @@
             Value="255" />
           <SupportedValue
             Value="Switzerland" />
+          <SupportedValue
+            Value="Germany" />
+          <SupportedValue
+            Value="Austria" />
           <SupportedValue
             Value="Other" />
         </EntityProperty.Attributes>
@@ -124,6 +122,45 @@
           <MaxLength
             Value="255" />
           <IncludeInUniqueIndex />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Active"
+        PropertyType=":Boolean?" />
+      <EntityProperty
+        Name="SubscriptionType"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+          <SupportedValue
+            Value="TrialPerson" />
+          <SupportedValue
+            Value="FullPerson" />
+          <SupportedValue
+            Value="HonoraryPerson" />
+          <SupportedValue
+            Value="SponsorPerson" />
+          <SupportedValue
+            Value="FullAssociation" />
+          <SupportedValue
+            Value="FullOrganisation" />
+          <SupportedValue
+            Value="SponsorOrganisation" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="SubscriptionStarts"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="SubscriptionEnds"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty

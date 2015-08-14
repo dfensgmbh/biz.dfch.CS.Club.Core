@@ -363,30 +363,6 @@ namespace LightSwitchApplication.Implementation
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String State
-        {
-            get
-            {
-                return _State;
-            }
-            set
-            {
-                OnStateChanging(value);
-                ReportPropertyChanging("State");
-                _State = value;
-                ReportPropertyChanged("State");
-                OnStateChanged();
-            }
-        }
-        private global::System.String _State;
-        partial void OnStateChanging(global::System.String value);
-        partial void OnStateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Country
@@ -431,6 +407,102 @@ namespace LightSwitchApplication.Implementation
         private global::System.String _MobileNumber;
         partial void OnMobileNumberChanging(global::System.String value);
         partial void OnMobileNumberChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> Active
+        {
+            get
+            {
+                return _Active;
+            }
+            set
+            {
+                OnActiveChanging(value);
+                ReportPropertyChanging("Active");
+                _Active = value;
+                ReportPropertyChanged("Active");
+                OnActiveChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _Active;
+        partial void OnActiveChanging(Nullable<global::System.Boolean> value);
+        partial void OnActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SubscriptionType
+        {
+            get
+            {
+                return _SubscriptionType;
+            }
+            set
+            {
+                OnSubscriptionTypeChanging(value);
+                ReportPropertyChanging("SubscriptionType");
+                _SubscriptionType = value;
+                ReportPropertyChanged("SubscriptionType");
+                OnSubscriptionTypeChanged();
+            }
+        }
+        private global::System.String _SubscriptionType;
+        partial void OnSubscriptionTypeChanging(global::System.String value);
+        partial void OnSubscriptionTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTimeOffset> SubscriptionStarts
+        {
+            get
+            {
+                return _SubscriptionStarts;
+            }
+            set
+            {
+                OnSubscriptionStartsChanging(value);
+                ReportPropertyChanging("SubscriptionStarts");
+                _SubscriptionStarts = value;
+                ReportPropertyChanged("SubscriptionStarts");
+                OnSubscriptionStartsChanged();
+            }
+        }
+        private Nullable<global::System.DateTimeOffset> _SubscriptionStarts;
+        partial void OnSubscriptionStartsChanging(Nullable<global::System.DateTimeOffset> value);
+        partial void OnSubscriptionStartsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTimeOffset> SubscriptionEnds
+        {
+            get
+            {
+                return _SubscriptionEnds;
+            }
+            set
+            {
+                OnSubscriptionEndsChanging(value);
+                ReportPropertyChanging("SubscriptionEnds");
+                _SubscriptionEnds = value;
+                ReportPropertyChanged("SubscriptionEnds");
+                OnSubscriptionEndsChanged();
+            }
+        }
+        private Nullable<global::System.DateTimeOffset> _SubscriptionEnds;
+        partial void OnSubscriptionEndsChanging(Nullable<global::System.DateTimeOffset> value);
+        partial void OnSubscriptionEndsChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 // Original file name:
-// Generation date: 8/9/2015 5:03:52 PM
+// Generation date: 8/14/2015 9:19:42 AM
 namespace LightSwitchApplication.Implementation
 {
     
@@ -105,19 +105,22 @@ namespace LightSwitchApplication.Implementation
                 "><Property Name=\"Address2\" Type=\"Edm.String\" MaxLength=\"255\" /><Property Name=\"A" +
                 "ddress3\" Type=\"Edm.String\" MaxLength=\"255\" /><Property Name=\"PostalCode\" Type=\"E" +
                 "dm.String\" Nullable=\"false\" MaxLength=\"255\" /><Property Name=\"City\" Type=\"Edm.St" +
-                "ring\" Nullable=\"false\" MaxLength=\"255\" /><Property Name=\"State\" Type=\"Edm.String" +
-                "\" MaxLength=\"255\" /><Property Name=\"Country\" Type=\"Edm.String\" Nullable=\"false\" " +
-                "MaxLength=\"255\" /><Property Name=\"MobileNumber\" Type=\"Edm.String\" Nullable=\"fals" +
-                "e\" MaxLength=\"255\" /><Property Name=\"CreatedBy\" Type=\"Edm.String\" MaxLength=\"255" +
-                "\" /><Property Name=\"Created\" Type=\"Edm.DateTimeOffset\" /><Property Name=\"Modifie" +
-                "dBy\" Type=\"Edm.String\" MaxLength=\"255\" /><Property Name=\"Modified\" Type=\"Edm.Dat" +
-                "eTimeOffset\" /><Property Name=\"RowVersion\" Type=\"Edm.Binary\" Nullable=\"false\" Co" +
-                "ncurrencyMode=\"Fixed\" annotation:StoreGeneratedPattern=\"Computed\" /></EntityType" +
-                "><EntityContainer Name=\"ApplicationData\" m:IsDefaultEntityContainer=\"true\"><Enti" +
-                "tySet Name=\"Members\" EntityType=\"LightSwitchApplication.Member\" /><FunctionImpor" +
-                "t Name=\"Microsoft_LightSwitch_GetCanInformation\" ReturnType=\"Edm.String\" m:HttpM" +
-                "ethod=\"GET\"><Parameter Name=\"dataServiceMembers\" Type=\"Edm.String\" Mode=\"In\" /><" +
-                "/FunctionImport></EntityContainer></Schema></edmx:DataServices></edmx:Edmx>";
+                "ring\" Nullable=\"false\" MaxLength=\"255\" /><Property Name=\"Country\" Type=\"Edm.Stri" +
+                "ng\" Nullable=\"false\" MaxLength=\"255\" /><Property Name=\"MobileNumber\" Type=\"Edm.S" +
+                "tring\" Nullable=\"false\" MaxLength=\"255\" /><Property Name=\"Active\" Type=\"Edm.Bool" +
+                "ean\" /><Property Name=\"SubscriptionType\" Type=\"Edm.String\" MaxLength=\"255\" /><Pr" +
+                "operty Name=\"SubscriptionStarts\" Type=\"Edm.DateTimeOffset\" /><Property Name=\"Sub" +
+                "scriptionEnds\" Type=\"Edm.DateTimeOffset\" /><Property Name=\"CreatedBy\" Type=\"Edm." +
+                "String\" MaxLength=\"255\" /><Property Name=\"Created\" Type=\"Edm.DateTimeOffset\" /><" +
+                "Property Name=\"ModifiedBy\" Type=\"Edm.String\" MaxLength=\"255\" /><Property Name=\"M" +
+                "odified\" Type=\"Edm.DateTimeOffset\" /><Property Name=\"RowVersion\" Type=\"Edm.Binar" +
+                "y\" Nullable=\"false\" ConcurrencyMode=\"Fixed\" annotation:StoreGeneratedPattern=\"Co" +
+                "mputed\" /></EntityType><EntityContainer Name=\"ApplicationData\" m:IsDefaultEntity" +
+                "Container=\"true\"><EntitySet Name=\"Members\" EntityType=\"LightSwitchApplication.Me" +
+                "mber\" /><FunctionImport Name=\"Microsoft_LightSwitch_GetCanInformation\" ReturnTyp" +
+                "e=\"Edm.String\" m:HttpMethod=\"GET\"><Parameter Name=\"dataServiceMembers\" Type=\"Edm" +
+                ".String\" Mode=\"In\" /></FunctionImport></EntityContainer></Schema></edmx:DataServ" +
+                "ices></edmx:Edmx>";
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
             private static string GetConcatenatedEdmxString()
             {
@@ -423,32 +426,6 @@ namespace LightSwitchApplication.Implementation
         partial void OnCityChanging(string value);
         partial void OnCityChanged();
         /// <summary>
-        /// There are no comments for Property State in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public string State
-        {
-            get
-            {
-                return this._State;
-            }
-            set
-            {
-                this.OnStateChanging(value);
-                if (object.Equals(this.State, value))
-                {
-                    return;
-                }
-                this._State = value;
-                this.OnStateChanged();
-                this.OnPropertyChanged("State");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private string _State;
-        partial void OnStateChanging(string value);
-        partial void OnStateChanged();
-        /// <summary>
         /// There are no comments for Property Country in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -500,6 +477,110 @@ namespace LightSwitchApplication.Implementation
         private string _MobileNumber;
         partial void OnMobileNumberChanging(string value);
         partial void OnMobileNumberChanged();
+        /// <summary>
+        /// There are no comments for Property Active in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public global::System.Nullable<bool> Active
+        {
+            get
+            {
+                return this._Active;
+            }
+            set
+            {
+                this.OnActiveChanging(value);
+                if (object.Equals(this.Active, value))
+                {
+                    return;
+                }
+                this._Active = value;
+                this.OnActiveChanged();
+                this.OnPropertyChanged("Active");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private global::System.Nullable<bool> _Active;
+        partial void OnActiveChanging(global::System.Nullable<bool> value);
+        partial void OnActiveChanged();
+        /// <summary>
+        /// There are no comments for Property SubscriptionType in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public string SubscriptionType
+        {
+            get
+            {
+                return this._SubscriptionType;
+            }
+            set
+            {
+                this.OnSubscriptionTypeChanging(value);
+                if (object.Equals(this.SubscriptionType, value))
+                {
+                    return;
+                }
+                this._SubscriptionType = value;
+                this.OnSubscriptionTypeChanged();
+                this.OnPropertyChanged("SubscriptionType");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private string _SubscriptionType;
+        partial void OnSubscriptionTypeChanging(string value);
+        partial void OnSubscriptionTypeChanged();
+        /// <summary>
+        /// There are no comments for Property SubscriptionStarts in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public global::System.Nullable<global::System.DateTimeOffset> SubscriptionStarts
+        {
+            get
+            {
+                return this._SubscriptionStarts;
+            }
+            set
+            {
+                this.OnSubscriptionStartsChanging(value);
+                if (object.Equals(this.SubscriptionStarts, value))
+                {
+                    return;
+                }
+                this._SubscriptionStarts = value;
+                this.OnSubscriptionStartsChanged();
+                this.OnPropertyChanged("SubscriptionStarts");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private global::System.Nullable<global::System.DateTimeOffset> _SubscriptionStarts;
+        partial void OnSubscriptionStartsChanging(global::System.Nullable<global::System.DateTimeOffset> value);
+        partial void OnSubscriptionStartsChanged();
+        /// <summary>
+        /// There are no comments for Property SubscriptionEnds in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public global::System.Nullable<global::System.DateTimeOffset> SubscriptionEnds
+        {
+            get
+            {
+                return this._SubscriptionEnds;
+            }
+            set
+            {
+                this.OnSubscriptionEndsChanging(value);
+                if (object.Equals(this.SubscriptionEnds, value))
+                {
+                    return;
+                }
+                this._SubscriptionEnds = value;
+                this.OnSubscriptionEndsChanged();
+                this.OnPropertyChanged("SubscriptionEnds");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private global::System.Nullable<global::System.DateTimeOffset> _SubscriptionEnds;
+        partial void OnSubscriptionEndsChanging(global::System.Nullable<global::System.DateTimeOffset> value);
+        partial void OnSubscriptionEndsChanged();
         /// <summary>
         /// There are no comments for Property CreatedBy in the schema.
         /// </summary>

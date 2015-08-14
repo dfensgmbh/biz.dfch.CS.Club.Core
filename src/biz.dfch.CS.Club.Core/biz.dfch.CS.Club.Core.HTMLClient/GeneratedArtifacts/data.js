@@ -47,14 +47,23 @@ window.myapp = msls.application;
         /// <field name="City" type="String">
         /// Gets or sets the city for this member.
         /// </field>
-        /// <field name="State" type="String">
-        /// Gets or sets the state for this member.
-        /// </field>
         /// <field name="Country" type="String">
         /// Gets or sets the country for this member.
         /// </field>
         /// <field name="MobileNumber" type="String">
         /// Gets or sets the mobileNumber for this member.
+        /// </field>
+        /// <field name="Active" type="Boolean">
+        /// Gets or sets the active for this member.
+        /// </field>
+        /// <field name="SubscriptionType" type="String">
+        /// Gets or sets the subscriptionType for this member.
+        /// </field>
+        /// <field name="SubscriptionStarts" type="Date">
+        /// Gets or sets the subscriptionStarts for this member.
+        /// </field>
+        /// <field name="SubscriptionEnds" type="Date">
+        /// Gets or sets the subscriptionEnds for this member.
         /// </field>
         /// <field name="CreatedBy" type="String">
         /// Gets or sets the createdBy for this member.
@@ -117,9 +126,12 @@ window.myapp = msls.application;
             { name: "Address3", type: String },
             { name: "PostalCode", type: String },
             { name: "City", type: String },
-            { name: "State", type: String },
             { name: "Country", type: String },
             { name: "MobileNumber", type: String },
+            { name: "Active", type: Boolean },
+            { name: "SubscriptionType", type: String },
+            { name: "SubscriptionStarts", type: Date },
+            { name: "SubscriptionEnds", type: Date },
             { name: "CreatedBy", type: String, isReadOnly: true },
             { name: "Created", type: Date, isReadOnly: true },
             { name: "ModifiedBy", type: String, isReadOnly: true },

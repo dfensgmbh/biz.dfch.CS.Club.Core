@@ -13,9 +13,12 @@
     <Property Name="Address3" Type="Edm.String" MaxLength="255" />
     <Property Name="PostalCode" Type="Edm.String" Nullable="false" MaxLength="255" />
     <Property Name="City" Type="Edm.String" Nullable="false" MaxLength="255" />
-    <Property Name="State" Type="Edm.String" MaxLength="255" />
     <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="255" />
     <Property Name="MobileNumber" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Active" Type="Edm.Boolean" />
+    <Property Name="SubscriptionType" Type="Edm.String" MaxLength="255" />
+    <Property Name="SubscriptionStarts" Type="Edm.DateTimeOffset" />
+    <Property Name="SubscriptionEnds" Type="Edm.DateTimeOffset" />
     <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
     <Property Name="Created" Type="Edm.DateTimeOffset" />
     <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />

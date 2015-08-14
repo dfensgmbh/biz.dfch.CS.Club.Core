@@ -4,45 +4,214 @@
 
     var $element = document.createElement("div");
 
-    lightSwitchApplication.Home.prototype._$contentItems = {
+    lightSwitchApplication.AddEditMember.prototype._$contentItems = {
         Tabs: {
             _$class: msls.ContentItem,
             _$name: "Tabs",
             _$parentName: "RootContentItem",
-            screen: lightSwitchApplication.Home
+            screen: lightSwitchApplication.AddEditMember
         },
-        Group: {
+        Details: {
             _$class: msls.ContentItem,
-            _$name: "Group",
+            _$name: "Details",
             _$parentName: "Tabs",
-            screen: lightSwitchApplication.Home,
-            data: lightSwitchApplication.Home,
-            value: lightSwitchApplication.Home
+            screen: lightSwitchApplication.AddEditMember,
+            data: lightSwitchApplication.AddEditMember,
+            value: lightSwitchApplication.AddEditMember
+        },
+        columns: {
+            _$class: msls.ContentItem,
+            _$name: "columns",
+            _$parentName: "Details",
+            screen: lightSwitchApplication.AddEditMember,
+            data: lightSwitchApplication.AddEditMember,
+            value: lightSwitchApplication.Member
+        },
+        left: {
+            _$class: msls.ContentItem,
+            _$name: "left",
+            _$parentName: "columns",
+            screen: lightSwitchApplication.AddEditMember,
+            data: lightSwitchApplication.Member,
+            value: lightSwitchApplication.Member
+        },
+        FirstName: {
+            _$class: msls.ContentItem,
+            _$name: "FirstName",
+            _$parentName: "left",
+            screen: lightSwitchApplication.AddEditMember,
+            data: lightSwitchApplication.Member,
+            value: String
+        },
+        LastName: {
+            _$class: msls.ContentItem,
+            _$name: "LastName",
+            _$parentName: "left",
+            screen: lightSwitchApplication.AddEditMember,
+            data: lightSwitchApplication.Member,
+            value: String
+        },
+        Birthday: {
+            _$class: msls.ContentItem,
+            _$name: "Birthday",
+            _$parentName: "left",
+            screen: lightSwitchApplication.AddEditMember,
+            data: lightSwitchApplication.Member,
+            value: Date
+        },
+        Address1: {
+            _$class: msls.ContentItem,
+            _$name: "Address1",
+            _$parentName: "left",
+            screen: lightSwitchApplication.AddEditMember,
+            data: lightSwitchApplication.Member,
+            value: String
+        },
+        Address2: {
+            _$class: msls.ContentItem,
+            _$name: "Address2",
+            _$parentName: "left",
+            screen: lightSwitchApplication.AddEditMember,
+            data: lightSwitchApplication.Member,
+            value: String
+        },
+        Address3: {
+            _$class: msls.ContentItem,
+            _$name: "Address3",
+            _$parentName: "left",
+            screen: lightSwitchApplication.AddEditMember,
+            data: lightSwitchApplication.Member,
+            value: String
+        },
+        right: {
+            _$class: msls.ContentItem,
+            _$name: "right",
+            _$parentName: "columns",
+            screen: lightSwitchApplication.AddEditMember,
+            data: lightSwitchApplication.Member,
+            value: lightSwitchApplication.Member
+        },
+        PostalCode: {
+            _$class: msls.ContentItem,
+            _$name: "PostalCode",
+            _$parentName: "right",
+            screen: lightSwitchApplication.AddEditMember,
+            data: lightSwitchApplication.Member,
+            value: String
+        },
+        City: {
+            _$class: msls.ContentItem,
+            _$name: "City",
+            _$parentName: "right",
+            screen: lightSwitchApplication.AddEditMember,
+            data: lightSwitchApplication.Member,
+            value: String
+        },
+        Country: {
+            _$class: msls.ContentItem,
+            _$name: "Country",
+            _$parentName: "right",
+            screen: lightSwitchApplication.AddEditMember,
+            data: lightSwitchApplication.Member,
+            value: String
+        },
+        MobileNumber: {
+            _$class: msls.ContentItem,
+            _$name: "MobileNumber",
+            _$parentName: "right",
+            screen: lightSwitchApplication.AddEditMember,
+            data: lightSwitchApplication.Member,
+            value: String
         },
         Popups: {
             _$class: msls.ContentItem,
             _$name: "Popups",
             _$parentName: "RootContentItem",
-            screen: lightSwitchApplication.Home
+            screen: lightSwitchApplication.AddEditMember
         }
     };
 
-    msls._addEntryPoints(lightSwitchApplication.Home, {
+    msls._addEntryPoints(lightSwitchApplication.AddEditMember, {
         /// <field>
-        /// Called when a new Home screen is created.
-        /// <br/>created(msls.application.Home screen)
+        /// Called when a new AddEditMember screen is created.
+        /// <br/>created(msls.application.AddEditMember screen)
         /// </field>
-        created: [lightSwitchApplication.Home],
+        created: [lightSwitchApplication.AddEditMember],
         /// <field>
-        /// Called before changes on an active Home screen are applied.
-        /// <br/>beforeApplyChanges(msls.application.Home screen)
+        /// Called before changes on an active AddEditMember screen are applied.
+        /// <br/>beforeApplyChanges(msls.application.AddEditMember screen)
         /// </field>
-        beforeApplyChanges: [lightSwitchApplication.Home],
+        beforeApplyChanges: [lightSwitchApplication.AddEditMember],
         /// <field>
-        /// Called after the Group content item has been rendered.
+        /// Called after the Details content item has been rendered.
         /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
         /// </field>
-        Group_postRender: [$element, function () { return new lightSwitchApplication.Home().findContentItem("Group"); }]
+        Details_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("Details"); }],
+        /// <field>
+        /// Called after the columns content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        columns_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("columns"); }],
+        /// <field>
+        /// Called after the left content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        left_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("left"); }],
+        /// <field>
+        /// Called after the FirstName content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        FirstName_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("FirstName"); }],
+        /// <field>
+        /// Called after the LastName content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        LastName_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("LastName"); }],
+        /// <field>
+        /// Called after the Birthday content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        Birthday_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("Birthday"); }],
+        /// <field>
+        /// Called after the Address1 content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        Address1_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("Address1"); }],
+        /// <field>
+        /// Called after the Address2 content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        Address2_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("Address2"); }],
+        /// <field>
+        /// Called after the Address3 content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        Address3_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("Address3"); }],
+        /// <field>
+        /// Called after the right content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        right_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("right"); }],
+        /// <field>
+        /// Called after the PostalCode content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        PostalCode_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("PostalCode"); }],
+        /// <field>
+        /// Called after the City content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        City_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("City"); }],
+        /// <field>
+        /// Called after the Country content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        Country_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("Country"); }],
+        /// <field>
+        /// Called after the MobileNumber content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        MobileNumber_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("MobileNumber"); }]
     });
 
     lightSwitchApplication.BrowseMembers.prototype._$contentItems = {
@@ -157,227 +326,45 @@
         Birthday_postRender: [$element, function () { return new lightSwitchApplication.BrowseMembers().findContentItem("Birthday"); }]
     });
 
-    lightSwitchApplication.AddEditMember.prototype._$contentItems = {
+    lightSwitchApplication.Home.prototype._$contentItems = {
         Tabs: {
             _$class: msls.ContentItem,
             _$name: "Tabs",
             _$parentName: "RootContentItem",
-            screen: lightSwitchApplication.AddEditMember
+            screen: lightSwitchApplication.Home
         },
-        Details: {
+        Group: {
             _$class: msls.ContentItem,
-            _$name: "Details",
+            _$name: "Group",
             _$parentName: "Tabs",
-            screen: lightSwitchApplication.AddEditMember,
-            data: lightSwitchApplication.AddEditMember,
-            value: lightSwitchApplication.AddEditMember
-        },
-        columns: {
-            _$class: msls.ContentItem,
-            _$name: "columns",
-            _$parentName: "Details",
-            screen: lightSwitchApplication.AddEditMember,
-            data: lightSwitchApplication.AddEditMember,
-            value: lightSwitchApplication.Member
-        },
-        left: {
-            _$class: msls.ContentItem,
-            _$name: "left",
-            _$parentName: "columns",
-            screen: lightSwitchApplication.AddEditMember,
-            data: lightSwitchApplication.Member,
-            value: lightSwitchApplication.Member
-        },
-        FirstName: {
-            _$class: msls.ContentItem,
-            _$name: "FirstName",
-            _$parentName: "left",
-            screen: lightSwitchApplication.AddEditMember,
-            data: lightSwitchApplication.Member,
-            value: String
-        },
-        LastName: {
-            _$class: msls.ContentItem,
-            _$name: "LastName",
-            _$parentName: "left",
-            screen: lightSwitchApplication.AddEditMember,
-            data: lightSwitchApplication.Member,
-            value: String
-        },
-        Birthday: {
-            _$class: msls.ContentItem,
-            _$name: "Birthday",
-            _$parentName: "left",
-            screen: lightSwitchApplication.AddEditMember,
-            data: lightSwitchApplication.Member,
-            value: Date
-        },
-        Address1: {
-            _$class: msls.ContentItem,
-            _$name: "Address1",
-            _$parentName: "left",
-            screen: lightSwitchApplication.AddEditMember,
-            data: lightSwitchApplication.Member,
-            value: String
-        },
-        Address2: {
-            _$class: msls.ContentItem,
-            _$name: "Address2",
-            _$parentName: "left",
-            screen: lightSwitchApplication.AddEditMember,
-            data: lightSwitchApplication.Member,
-            value: String
-        },
-        Address3: {
-            _$class: msls.ContentItem,
-            _$name: "Address3",
-            _$parentName: "left",
-            screen: lightSwitchApplication.AddEditMember,
-            data: lightSwitchApplication.Member,
-            value: String
-        },
-        right: {
-            _$class: msls.ContentItem,
-            _$name: "right",
-            _$parentName: "columns",
-            screen: lightSwitchApplication.AddEditMember,
-            data: lightSwitchApplication.Member,
-            value: lightSwitchApplication.Member
-        },
-        PostalCode: {
-            _$class: msls.ContentItem,
-            _$name: "PostalCode",
-            _$parentName: "right",
-            screen: lightSwitchApplication.AddEditMember,
-            data: lightSwitchApplication.Member,
-            value: String
-        },
-        City: {
-            _$class: msls.ContentItem,
-            _$name: "City",
-            _$parentName: "right",
-            screen: lightSwitchApplication.AddEditMember,
-            data: lightSwitchApplication.Member,
-            value: String
-        },
-        State: {
-            _$class: msls.ContentItem,
-            _$name: "State",
-            _$parentName: "right",
-            screen: lightSwitchApplication.AddEditMember,
-            data: lightSwitchApplication.Member,
-            value: String
-        },
-        Country: {
-            _$class: msls.ContentItem,
-            _$name: "Country",
-            _$parentName: "right",
-            screen: lightSwitchApplication.AddEditMember,
-            data: lightSwitchApplication.Member,
-            value: String
-        },
-        MobileNumber: {
-            _$class: msls.ContentItem,
-            _$name: "MobileNumber",
-            _$parentName: "right",
-            screen: lightSwitchApplication.AddEditMember,
-            data: lightSwitchApplication.Member,
-            value: String
+            screen: lightSwitchApplication.Home,
+            data: lightSwitchApplication.Home,
+            value: lightSwitchApplication.Home
         },
         Popups: {
             _$class: msls.ContentItem,
             _$name: "Popups",
             _$parentName: "RootContentItem",
-            screen: lightSwitchApplication.AddEditMember
+            screen: lightSwitchApplication.Home
         }
     };
 
-    msls._addEntryPoints(lightSwitchApplication.AddEditMember, {
+    msls._addEntryPoints(lightSwitchApplication.Home, {
         /// <field>
-        /// Called when a new AddEditMember screen is created.
-        /// <br/>created(msls.application.AddEditMember screen)
+        /// Called when a new Home screen is created.
+        /// <br/>created(msls.application.Home screen)
         /// </field>
-        created: [lightSwitchApplication.AddEditMember],
+        created: [lightSwitchApplication.Home],
         /// <field>
-        /// Called before changes on an active AddEditMember screen are applied.
-        /// <br/>beforeApplyChanges(msls.application.AddEditMember screen)
+        /// Called before changes on an active Home screen are applied.
+        /// <br/>beforeApplyChanges(msls.application.Home screen)
         /// </field>
-        beforeApplyChanges: [lightSwitchApplication.AddEditMember],
+        beforeApplyChanges: [lightSwitchApplication.Home],
         /// <field>
-        /// Called after the Details content item has been rendered.
+        /// Called after the Group content item has been rendered.
         /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
         /// </field>
-        Details_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("Details"); }],
-        /// <field>
-        /// Called after the columns content item has been rendered.
-        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
-        /// </field>
-        columns_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("columns"); }],
-        /// <field>
-        /// Called after the left content item has been rendered.
-        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
-        /// </field>
-        left_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("left"); }],
-        /// <field>
-        /// Called after the FirstName content item has been rendered.
-        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
-        /// </field>
-        FirstName_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("FirstName"); }],
-        /// <field>
-        /// Called after the LastName content item has been rendered.
-        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
-        /// </field>
-        LastName_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("LastName"); }],
-        /// <field>
-        /// Called after the Birthday content item has been rendered.
-        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
-        /// </field>
-        Birthday_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("Birthday"); }],
-        /// <field>
-        /// Called after the Address1 content item has been rendered.
-        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
-        /// </field>
-        Address1_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("Address1"); }],
-        /// <field>
-        /// Called after the Address2 content item has been rendered.
-        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
-        /// </field>
-        Address2_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("Address2"); }],
-        /// <field>
-        /// Called after the Address3 content item has been rendered.
-        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
-        /// </field>
-        Address3_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("Address3"); }],
-        /// <field>
-        /// Called after the right content item has been rendered.
-        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
-        /// </field>
-        right_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("right"); }],
-        /// <field>
-        /// Called after the PostalCode content item has been rendered.
-        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
-        /// </field>
-        PostalCode_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("PostalCode"); }],
-        /// <field>
-        /// Called after the City content item has been rendered.
-        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
-        /// </field>
-        City_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("City"); }],
-        /// <field>
-        /// Called after the State content item has been rendered.
-        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
-        /// </field>
-        State_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("State"); }],
-        /// <field>
-        /// Called after the Country content item has been rendered.
-        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
-        /// </field>
-        Country_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("Country"); }],
-        /// <field>
-        /// Called after the MobileNumber content item has been rendered.
-        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
-        /// </field>
-        MobileNumber_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("MobileNumber"); }]
+        Group_postRender: [$element, function () { return new lightSwitchApplication.Home().findContentItem("Group"); }]
     });
 
     lightSwitchApplication.ViewMember.prototype._$contentItems = {
@@ -482,14 +469,6 @@
             screen: lightSwitchApplication.ViewMember,
             data: lightSwitchApplication.Member,
             value: lightSwitchApplication.Member
-        },
-        State: {
-            _$class: msls.ContentItem,
-            _$name: "State",
-            _$parentName: "right",
-            screen: lightSwitchApplication.ViewMember,
-            data: lightSwitchApplication.Member,
-            value: String
         },
         Country: {
             _$class: msls.ContentItem,
@@ -618,11 +597,6 @@
         /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
         /// </field>
         right_postRender: [$element, function () { return new lightSwitchApplication.ViewMember().findContentItem("right"); }],
-        /// <field>
-        /// Called after the State content item has been rendered.
-        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
-        /// </field>
-        State_postRender: [$element, function () { return new lightSwitchApplication.ViewMember().findContentItem("State"); }],
         /// <field>
         /// Called after the Country content item has been rendered.
         /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)

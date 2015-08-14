@@ -178,19 +178,6 @@
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
-                  Name="State"
-                  Kind="Value"
-                  DataType=":String?">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Member/Properties[State]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
                   Name="Country"
                   Kind="Value"
                   DataType=":String">

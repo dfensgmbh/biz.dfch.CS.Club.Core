@@ -62,11 +62,6 @@ namespace LightSwitchApplication.Implementation
             this.___OnPropertyChanged("City");
         }
         
-        partial void OnStateChanged()
-        {
-            this.___OnPropertyChanged("State");
-        }
-        
         partial void OnCountryChanged()
         {
             this.___OnPropertyChanged("Country");
@@ -75,6 +70,26 @@ namespace LightSwitchApplication.Implementation
         partial void OnMobileNumberChanged()
         {
             this.___OnPropertyChanged("MobileNumber");
+        }
+        
+        partial void OnActiveChanged()
+        {
+            this.___OnPropertyChanged("Active");
+        }
+        
+        partial void OnSubscriptionTypeChanged()
+        {
+            this.___OnPropertyChanged("SubscriptionType");
+        }
+        
+        partial void OnSubscriptionStartsChanged()
+        {
+            this.___OnPropertyChanged("SubscriptionStarts");
+        }
+        
+        partial void OnSubscriptionEndsChanged()
+        {
+            this.___OnPropertyChanged("SubscriptionEnds");
         }
         
         partial void OnCreatedByChanged()

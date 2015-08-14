@@ -16,11 +16,14 @@
     <Property Name="Address3" Type="nvarchar" MaxLength="255" />
     <Property Name="PostalCode" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="255" />
-    <Property Name="State" Type="nvarchar" MaxLength="255" />
     <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="MobileNumber" Type="nvarchar" Nullable="false" MaxLength="255">
       <UniqueIndexAnnotation xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
     </Property>
+    <Property Name="Active" Type="bit" />
+    <Property Name="SubscriptionType" Type="nvarchar" MaxLength="255" />
+    <Property Name="SubscriptionStarts" Type="datetimeoffset" />
+    <Property Name="SubscriptionEnds" Type="datetimeoffset" />
     <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
     <Property Name="Created" Type="datetimeoffset" />
     <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />

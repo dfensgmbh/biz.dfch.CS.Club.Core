@@ -13,9 +13,12 @@
           <ScalarProperty Name="Address3" ColumnName="Address3" />
           <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
           <ScalarProperty Name="City" ColumnName="City" />
-          <ScalarProperty Name="State" ColumnName="State" />
           <ScalarProperty Name="Country" ColumnName="Country" />
           <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="SubscriptionType" ColumnName="SubscriptionType" />
+          <ScalarProperty Name="SubscriptionStarts" ColumnName="SubscriptionStarts" />
+          <ScalarProperty Name="SubscriptionEnds" ColumnName="SubscriptionEnds" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="Created" ColumnName="Created" />
           <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />

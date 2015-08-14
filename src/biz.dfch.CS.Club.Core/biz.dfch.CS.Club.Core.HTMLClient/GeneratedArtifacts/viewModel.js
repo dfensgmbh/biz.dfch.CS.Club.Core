@@ -8,9 +8,9 @@
         $toODataString = msls._toODataString,
         $defineShowScreen = msls._defineShowScreen;
 
-    function Home(parameters, dataWorkspace) {
+    function AddEditMember(parameters, dataWorkspace) {
         /// <summary>
-        /// Represents the Home screen.
+        /// Represents the AddEditMember screen.
         /// </summary>
         /// <param name="parameters" type="Array">
         /// An array of screen parameter values.
@@ -18,13 +18,16 @@
         /// <param name="dataWorkspace" type="msls.application.DataWorkspace" optional="true">
         /// An existing data workspace for this screen to use. By default, a new data workspace is created.
         /// </param>
-        /// <field name="details" type="msls.application.Home.Details">
+        /// <field name="Member" type="msls.application.Member">
+        /// Gets or sets the member for this screen.
+        /// </field>
+        /// <field name="details" type="msls.application.AddEditMember.Details">
         /// Gets the details for this screen.
         /// </field>
         if (!dataWorkspace) {
             dataWorkspace = new lightSwitchApplication.DataWorkspace();
         }
-        $Screen.call(this, dataWorkspace, "Home", parameters);
+        $Screen.call(this, dataWorkspace, "AddEditMember", parameters);
     }
 
     function BrowseMembers(parameters, dataWorkspace) {
@@ -49,9 +52,9 @@
         $Screen.call(this, dataWorkspace, "BrowseMembers", parameters);
     }
 
-    function AddEditMember(parameters, dataWorkspace) {
+    function Home(parameters, dataWorkspace) {
         /// <summary>
-        /// Represents the AddEditMember screen.
+        /// Represents the Home screen.
         /// </summary>
         /// <param name="parameters" type="Array">
         /// An array of screen parameter values.
@@ -59,16 +62,13 @@
         /// <param name="dataWorkspace" type="msls.application.DataWorkspace" optional="true">
         /// An existing data workspace for this screen to use. By default, a new data workspace is created.
         /// </param>
-        /// <field name="Member" type="msls.application.Member">
-        /// Gets or sets the member for this screen.
-        /// </field>
-        /// <field name="details" type="msls.application.AddEditMember.Details">
+        /// <field name="details" type="msls.application.Home.Details">
         /// Gets the details for this screen.
         /// </field>
         if (!dataWorkspace) {
             dataWorkspace = new lightSwitchApplication.DataWorkspace();
         }
-        $Screen.call(this, dataWorkspace, "AddEditMember", parameters);
+        $Screen.call(this, dataWorkspace, "Home", parameters);
     }
 
     function ViewMember(parameters, dataWorkspace) {
@@ -95,7 +95,8 @@
 
     msls._addToNamespace("msls.application", {
 
-        Home: $defineScreen(Home, [
+        AddEditMember: $defineScreen(AddEditMember, [
+            { name: "Member", kind: "local", type: lightSwitchApplication.Member }
         ], [
         ]),
 
@@ -109,8 +110,7 @@
         ], [
         ]),
 
-        AddEditMember: $defineScreen(AddEditMember, [
-            { name: "Member", kind: "local", type: lightSwitchApplication.Member }
+        Home: $defineScreen(Home, [
         ], [
         ]),
 
@@ -119,16 +119,16 @@
         ], [
         ]),
 
-        showHome: $defineShowScreen(function showHome(options) {
+        showAddEditMember: $defineShowScreen(function showAddEditMember(Member, options) {
             /// <summary>
-            /// Asynchronously navigates forward to the Home screen.
+            /// Asynchronously navigates forward to the AddEditMember screen.
             /// </summary>
             /// <param name="options" optional="true">
             /// An object that provides one or more of the following options:<br/>- beforeShown: a function that is called after boundary behavior has been applied but before the screen is shown.<br/>+ Signature: beforeShown(screen)<br/>- afterClosed: a function that is called after boundary behavior has been applied and the screen has been closed.<br/>+ Signature: afterClosed(screen, action : msls.NavigateBackAction)
             /// </param>
             /// <returns type="WinJS.Promise" />
-            var parameters = Array.prototype.slice.call(arguments, 0, 0);
-            return lightSwitchApplication.showScreen("Home", parameters, options);
+            var parameters = Array.prototype.slice.call(arguments, 0, 1);
+            return lightSwitchApplication.showScreen("AddEditMember", parameters, options);
         }),
 
         showBrowseMembers: $defineShowScreen(function showBrowseMembers(options) {
@@ -143,16 +143,16 @@
             return lightSwitchApplication.showScreen("BrowseMembers", parameters, options);
         }),
 
-        showAddEditMember: $defineShowScreen(function showAddEditMember(Member, options) {
+        showHome: $defineShowScreen(function showHome(options) {
             /// <summary>
-            /// Asynchronously navigates forward to the AddEditMember screen.
+            /// Asynchronously navigates forward to the Home screen.
             /// </summary>
             /// <param name="options" optional="true">
             /// An object that provides one or more of the following options:<br/>- beforeShown: a function that is called after boundary behavior has been applied but before the screen is shown.<br/>+ Signature: beforeShown(screen)<br/>- afterClosed: a function that is called after boundary behavior has been applied and the screen has been closed.<br/>+ Signature: afterClosed(screen, action : msls.NavigateBackAction)
             /// </param>
             /// <returns type="WinJS.Promise" />
-            var parameters = Array.prototype.slice.call(arguments, 0, 1);
-            return lightSwitchApplication.showScreen("AddEditMember", parameters, options);
+            var parameters = Array.prototype.slice.call(arguments, 0, 0);
+            return lightSwitchApplication.showScreen("Home", parameters, options);
         }),
 
         showViewMember: $defineShowScreen(function showViewMember(Member, options) {
