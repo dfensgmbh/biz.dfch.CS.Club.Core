@@ -11,6 +11,7 @@
     <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="Birthday" Type="datetime" Nullable="false" />
+    <Property Name="LegalEntity" Type="nvarchar" MaxLength="255" />
     <Property Name="Address1" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="Address2" Type="nvarchar" MaxLength="255" />
     <Property Name="Address3" Type="nvarchar" MaxLength="255" />

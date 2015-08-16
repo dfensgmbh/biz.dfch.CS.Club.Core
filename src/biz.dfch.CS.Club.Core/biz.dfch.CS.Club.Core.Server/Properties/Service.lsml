@@ -33,4 +33,14 @@
         Replacement="$1 $2" />
     </GlobalAttributeGroup.Attributes>
   </GlobalAttributeGroup>
+  <Permission
+    Name="AnonymousCanSubscribe" />
+  <Permission
+    Name="Members_CanCreate" />
+  <Permission
+    Name="Members_CanRead" />
+  <Permission
+    Name="Members_CanUpdate" />
+  <Permission
+    Name="Members_CanDelete" />
 </ServiceApplication>

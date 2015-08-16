@@ -37,6 +37,11 @@ namespace LightSwitchApplication.Implementation
             this.___OnPropertyChanged("Birthday");
         }
         
+        partial void OnLegalEntityChanged()
+        {
+            this.___OnPropertyChanged("LegalEntity");
+        }
+        
         partial void OnAddress1Changed()
         {
             this.___OnPropertyChanged("Address1");

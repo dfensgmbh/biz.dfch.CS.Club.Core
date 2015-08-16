@@ -193,12 +193,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationData\Members\SubscriptionType.cs" />
+    <Compile Include="ApplicationData\Members\MembersController.cs" />
+    <Compile Include="Utilities\EnumUtil.cs" />
     <Compile Include="DataSources\ApplicationData\_ApplicationDataService.lsml.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\HttpClient.cs" />
     <Compile Include="DataSources\ApplicationData\Member.lsml.cs">
       <DependentUpon>Members.lsml</DependentUpon>
     </Compile>
-    <Compile Include="ApplicationData\Validators\MemberValidation.cs" />
+    <Compile Include="ApplicationData\Members\Validation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -209,6 +215,7 @@
   <ItemGroup>
     <_ServerFile Include="LogIn.aspx" />
     <_ServerFile Include="LogOut.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <LightSwitchModel Include="Properties\DataSources\ApplicationData.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\Members.lsml" />

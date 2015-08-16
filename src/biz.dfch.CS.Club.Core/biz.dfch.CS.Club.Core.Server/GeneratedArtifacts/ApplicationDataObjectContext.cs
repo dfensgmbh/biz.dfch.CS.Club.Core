@@ -243,6 +243,30 @@ namespace LightSwitchApplication.Implementation
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LegalEntity
+        {
+            get
+            {
+                return _LegalEntity;
+            }
+            set
+            {
+                OnLegalEntityChanging(value);
+                ReportPropertyChanging("LegalEntity");
+                _LegalEntity = value;
+                ReportPropertyChanged("LegalEntity");
+                OnLegalEntityChanged();
+            }
+        }
+        private global::System.String _LegalEntity;
+        partial void OnLegalEntityChanging(global::System.String value);
+        partial void OnLegalEntityChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Address1

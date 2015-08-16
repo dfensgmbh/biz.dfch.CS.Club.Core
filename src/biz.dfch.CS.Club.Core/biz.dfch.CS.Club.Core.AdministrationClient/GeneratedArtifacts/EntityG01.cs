@@ -179,6 +179,30 @@ namespace LightSwitchApplication
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "12.1.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public string LegalEntity
+        {
+            get
+            {
+                return global::LightSwitchApplication.Member.DetailsClass.GetValue(this, global::LightSwitchApplication.Member.DetailsClass.PropertySetProperties.LegalEntity);
+            }
+            set
+            {
+                global::LightSwitchApplication.Member.DetailsClass.SetValue(this, global::LightSwitchApplication.Member.DetailsClass.PropertySetProperties.LegalEntity, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void LegalEntity_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void LegalEntity_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void LegalEntity_Changed();
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "12.1.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public string Address1
         {
             get
@@ -657,6 +681,14 @@ namespace LightSwitchApplication
                     }
                 }
                 
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Member, global::LightSwitchApplication.Member.DetailsClass, string> LegalEntity
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.Member.DetailsClass.PropertySetProperties.LegalEntity) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Member, global::LightSwitchApplication.Member.DetailsClass, string>;
+                    }
+                }
+                
                 public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Member, global::LightSwitchApplication.Member.DetailsClass, string> Address1
                 {
                     get
@@ -795,6 +827,7 @@ namespace LightSwitchApplication
                 new string FirstName { get; set; }
                 new string LastName { get; set; }
                 new global::System.DateTime Birthday { get; set; }
+                new string LegalEntity { get; set; }
                 new string Address1 { get; set; }
                 new string Address2 { get; set; }
                 new string Address3 { get; set; }
@@ -966,6 +999,43 @@ namespace LightSwitchApplication
                 private static void _Birthday_OnValueChanged(global::LightSwitchApplication.Member e)
                 {
                     e.Birthday_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Member, global::LightSwitchApplication.Member.DetailsClass, string>.Entry
+                    LegalEntity = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Member, global::LightSwitchApplication.Member.DetailsClass, string>.Entry(
+                        "LegalEntity",
+                        global::LightSwitchApplication.Member.DetailsClass.PropertySetProperties._LegalEntity_Stub,
+                        global::LightSwitchApplication.Member.DetailsClass.PropertySetProperties._LegalEntity_ComputeIsReadOnly,
+                        global::LightSwitchApplication.Member.DetailsClass.PropertySetProperties._LegalEntity_Validate,
+                        global::LightSwitchApplication.Member.DetailsClass.PropertySetProperties._LegalEntity_GetImplementationValue,
+                        global::LightSwitchApplication.Member.DetailsClass.PropertySetProperties._LegalEntity_SetImplementationValue,
+                        global::LightSwitchApplication.Member.DetailsClass.PropertySetProperties._LegalEntity_OnValueChanged);
+                private static void _LegalEntity_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Member.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Member, global::LightSwitchApplication.Member.DetailsClass, string>.Data> c, global::LightSwitchApplication.Member.DetailsClass d, object sf)
+                {
+                    c(d, ref d._LegalEntity, sf);
+                }
+                private static bool _LegalEntity_ComputeIsReadOnly(global::LightSwitchApplication.Member e)
+                {
+                    bool result = false;
+                    e.LegalEntity_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _LegalEntity_Validate(global::LightSwitchApplication.Member e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.LegalEntity_Validate(r);
+                }
+                private static string _LegalEntity_GetImplementationValue(global::LightSwitchApplication.Member.DetailsClass d)
+                {
+                    return d.ImplementationEntity.LegalEntity;
+                }
+                private static void _LegalEntity_SetImplementationValue(global::LightSwitchApplication.Member.DetailsClass d, string v)
+                {
+                    d.ImplementationEntity.LegalEntity = v;
+                }
+                private static void _LegalEntity_OnValueChanged(global::LightSwitchApplication.Member e)
+                {
+                    e.LegalEntity_Changed();
                 }
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -1557,6 +1627,9 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Member, global::LightSwitchApplication.Member.DetailsClass, global::System.DateTime>.Data _Birthday;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Member, global::LightSwitchApplication.Member.DetailsClass, string>.Data _LegalEntity;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Member, global::LightSwitchApplication.Member.DetailsClass, string>.Data _Address1;

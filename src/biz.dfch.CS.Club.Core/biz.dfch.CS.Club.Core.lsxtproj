@@ -22,7 +22,7 @@
     <ApplicationServerType>Azure</ApplicationServerType>
     <AuthenticationType>Forms</AuthenticationType>
     <ApplicationName>biz.dfch.CS.Club.Core</ApplicationName>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
     <ServiceDefinitionFile>ServiceDefinition.csdef</ServiceDefinitionFile>
     <ServiceConfigurationFile>ServiceConfiguration.cscfg</ServiceConfigurationFile>
     <SqlExpressInstanceName>(LocalDB)\v11.0</SqlExpressInstanceName>
@@ -38,7 +38,7 @@
     <PublishNewDatabase>True</PublishNewDatabase>
     <PublishUrl>membership-stufenbau-kulturverein-ch.scm.azurewebsites.net:443</PublishUrl>
     <PublishSite>membership-stufenbau-kulturverein-ch</PublishSite>
-    <RemotePublish>True</RemotePublish>
+    <RemotePublish>False</RemotePublish>
     <SkipExtraFilesOnServer>True</SkipExtraFilesOnServer>
     <UseLightSwitchWebDeploymentProvider>False</UseLightSwitchWebDeploymentProvider>
     <AzureAllowUpgrade>True</AzureAllowUpgrade>

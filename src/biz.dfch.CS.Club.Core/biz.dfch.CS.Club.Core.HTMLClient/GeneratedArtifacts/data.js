@@ -32,6 +32,9 @@ window.myapp = msls.application;
         /// <field name="Birthday" type="Date">
         /// Gets or sets the birthday for this member.
         /// </field>
+        /// <field name="LegalEntity" type="String">
+        /// Gets or sets the legalEntity for this member.
+        /// </field>
         /// <field name="Address1" type="String">
         /// Gets or sets the address1 for this member.
         /// </field>
@@ -121,6 +124,7 @@ window.myapp = msls.application;
             { name: "FirstName", type: String },
             { name: "LastName", type: String },
             { name: "Birthday", type: Date },
+            { name: "LegalEntity", type: String },
             { name: "Address1", type: String },
             { name: "Address2", type: String },
             { name: "Address3", type: String },

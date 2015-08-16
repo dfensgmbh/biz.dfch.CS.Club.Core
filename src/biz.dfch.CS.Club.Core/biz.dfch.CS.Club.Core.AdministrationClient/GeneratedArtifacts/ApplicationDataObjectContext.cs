@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 // Original file name:
-// Generation date: 8/14/2015 2:34:45 PM
+// Generation date: 8/16/2015 2:35:29 PM
 namespace LightSwitchApplication.Implementation
 {
     
@@ -101,26 +101,27 @@ namespace LightSwitchApplication.Implementation
                 "tern=\"Identity\" /><Property Name=\"FirstName\" Type=\"Edm.String\" Nullable=\"false\" " +
                 "MaxLength=\"255\" /><Property Name=\"LastName\" Type=\"Edm.String\" Nullable=\"false\" M" +
                 "axLength=\"255\" /><Property Name=\"Birthday\" Type=\"Edm.DateTime\" Nullable=\"false\" " +
-                "/><Property Name=\"Address1\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"255\" /" +
-                "><Property Name=\"Address2\" Type=\"Edm.String\" MaxLength=\"255\" /><Property Name=\"A" +
-                "ddress3\" Type=\"Edm.String\" MaxLength=\"255\" /><Property Name=\"PostalCode\" Type=\"E" +
-                "dm.String\" Nullable=\"false\" MaxLength=\"255\" /><Property Name=\"City\" Type=\"Edm.St" +
-                "ring\" Nullable=\"false\" MaxLength=\"255\" /><Property Name=\"Country\" Type=\"Edm.Stri" +
-                "ng\" Nullable=\"false\" MaxLength=\"255\" /><Property Name=\"MobileNumber\" Type=\"Edm.S" +
-                "tring\" Nullable=\"false\" MaxLength=\"255\" /><Property Name=\"Active\" Type=\"Edm.Bool" +
-                "ean\" /><Property Name=\"SubscriptionType\" Type=\"Edm.String\" MaxLength=\"255\" /><Pr" +
-                "operty Name=\"SubscriptionStarts\" Type=\"Edm.DateTimeOffset\" /><Property Name=\"Sub" +
-                "scriptionEnds\" Type=\"Edm.DateTimeOffset\" /><Property Name=\"CreatedBy\" Type=\"Edm." +
-                "String\" MaxLength=\"255\" /><Property Name=\"Created\" Type=\"Edm.DateTimeOffset\" /><" +
-                "Property Name=\"ModifiedBy\" Type=\"Edm.String\" MaxLength=\"255\" /><Property Name=\"M" +
-                "odified\" Type=\"Edm.DateTimeOffset\" /><Property Name=\"RowVersion\" Type=\"Edm.Binar" +
-                "y\" Nullable=\"false\" ConcurrencyMode=\"Fixed\" annotation:StoreGeneratedPattern=\"Co" +
-                "mputed\" /></EntityType><EntityContainer Name=\"ApplicationData\" m:IsDefaultEntity" +
-                "Container=\"true\"><EntitySet Name=\"Members\" EntityType=\"LightSwitchApplication.Me" +
-                "mber\" /><FunctionImport Name=\"Microsoft_LightSwitch_GetCanInformation\" ReturnTyp" +
-                "e=\"Edm.String\" m:HttpMethod=\"GET\"><Parameter Name=\"dataServiceMembers\" Type=\"Edm" +
-                ".String\" Mode=\"In\" /></FunctionImport></EntityContainer></Schema></edmx:DataServ" +
-                "ices></edmx:Edmx>";
+                "/><Property Name=\"LegalEntity\" Type=\"Edm.String\" MaxLength=\"255\" /><Property Nam" +
+                "e=\"Address1\" Type=\"Edm.String\" Nullable=\"false\" MaxLength=\"255\" /><Property Name" +
+                "=\"Address2\" Type=\"Edm.String\" MaxLength=\"255\" /><Property Name=\"Address3\" Type=\"" +
+                "Edm.String\" MaxLength=\"255\" /><Property Name=\"PostalCode\" Type=\"Edm.String\" Null" +
+                "able=\"false\" MaxLength=\"255\" /><Property Name=\"City\" Type=\"Edm.String\" Nullable=" +
+                "\"false\" MaxLength=\"255\" /><Property Name=\"Country\" Type=\"Edm.String\" Nullable=\"f" +
+                "alse\" MaxLength=\"255\" /><Property Name=\"MobileNumber\" Type=\"Edm.String\" Nullable" +
+                "=\"false\" MaxLength=\"255\" /><Property Name=\"Active\" Type=\"Edm.Boolean\" /><Propert" +
+                "y Name=\"SubscriptionType\" Type=\"Edm.String\" MaxLength=\"255\" /><Property Name=\"Su" +
+                "bscriptionStarts\" Type=\"Edm.DateTimeOffset\" /><Property Name=\"SubscriptionEnds\" " +
+                "Type=\"Edm.DateTimeOffset\" /><Property Name=\"CreatedBy\" Type=\"Edm.String\" MaxLeng" +
+                "th=\"255\" /><Property Name=\"Created\" Type=\"Edm.DateTimeOffset\" /><Property Name=\"" +
+                "ModifiedBy\" Type=\"Edm.String\" MaxLength=\"255\" /><Property Name=\"Modified\" Type=\"" +
+                "Edm.DateTimeOffset\" /><Property Name=\"RowVersion\" Type=\"Edm.Binary\" Nullable=\"fa" +
+                "lse\" ConcurrencyMode=\"Fixed\" annotation:StoreGeneratedPattern=\"Computed\" /></Ent" +
+                "ityType><EntityContainer Name=\"ApplicationData\" m:IsDefaultEntityContainer=\"true" +
+                "\"><EntitySet Name=\"Members\" EntityType=\"LightSwitchApplication.Member\" /><Functi" +
+                "onImport Name=\"Microsoft_LightSwitch_GetCanInformation\" ReturnType=\"Edm.String\" " +
+                "m:HttpMethod=\"GET\"><Parameter Name=\"dataServiceMembers\" Type=\"Edm.String\" Mode=\"" +
+                "In\" /></FunctionImport></EntityContainer></Schema></edmx:DataServices></edmx:Edm" +
+                "x>";
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
             private static string GetConcatenatedEdmxString()
             {
@@ -295,6 +296,32 @@ namespace LightSwitchApplication.Implementation
         private global::System.DateTime _Birthday;
         partial void OnBirthdayChanging(global::System.DateTime value);
         partial void OnBirthdayChanged();
+        /// <summary>
+        /// There are no comments for Property LegalEntity in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public string LegalEntity
+        {
+            get
+            {
+                return this._LegalEntity;
+            }
+            set
+            {
+                this.OnLegalEntityChanging(value);
+                if (object.Equals(this.LegalEntity, value))
+                {
+                    return;
+                }
+                this._LegalEntity = value;
+                this.OnLegalEntityChanged();
+                this.OnPropertyChanged("LegalEntity");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private string _LegalEntity;
+        partial void OnLegalEntityChanging(string value);
+        partial void OnLegalEntityChanged();
         /// <summary>
         /// There are no comments for Property Address1 in the schema.
         /// </summary>

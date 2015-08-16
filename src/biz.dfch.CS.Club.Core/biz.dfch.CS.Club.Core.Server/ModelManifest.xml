@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Documents>
-    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.Server\DataSources\ApplicationData\Members.lsml" Checksum="7177D6488F49E6BAB26D882D668198BE29FB3B46538EF366AFFA8929A3821D46" />
+    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.Server\DataSources\ApplicationData\Members.lsml" Checksum="88A95F797F5BDD3FDA00399970027BEB66ED87CE1AE0185FA78FB3939A878E7B" />
     <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.Server\Properties\DataSources\ApplicationData.lsml" Checksum="986A4E2C3BC71E61B26C49DBB7451F9203AA85AB5825740AC6E35E7095E0722C" />
-    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.Server\Properties\Service.lsml" Checksum="679C78F29C5AF23E9956A773B0E46DF90F7B86CADA0B79571E5896A1C79F5B70" />
+    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.Server\Properties\Service.lsml" Checksum="15BC50A431CDDF3760C3F8270787031687DEDB50C202F0F1C9AC22A108A23FFA" />
   </Documents>
 </ModelDocumentManifest>

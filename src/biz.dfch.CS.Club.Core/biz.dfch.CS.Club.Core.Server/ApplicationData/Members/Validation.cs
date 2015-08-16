@@ -7,13 +7,15 @@ using System.Text.RegularExpressions;
 using LightSwitchApplication;
 using Microsoft.LightSwitch;
 
-namespace biz.dfch.CS.Club.Core.Server.ApplicationData.Validators
+using biz.dfch.CS.Club.Core.Server.ApplicationData.Members;
+
+namespace biz.dfch.CS.Club.Core.Server.ApplicationData.Members
 {
-    public class MemberValidation
+    public class Validation
     {
-        private int mimimumAge = 18;
-        private int minimumMobileNumberLength = 9;
-        private String defaultCountryCode = "41";
+        private readonly int mimimumAge = 18;
+        private readonly int minimumMobileNumberLength = 9;
+        private readonly String defaultCountryCode = "41";
 
         public void MobileNumber_NormaliseAndValidate(Member entity, EntityValidationResultsBuilder results)
         {
@@ -48,6 +50,7 @@ namespace biz.dfch.CS.Club.Core.Server.ApplicationData.Validators
             }
             entity.MobileNumber = mobileNumber;
         }
+
         public void Birthday_Validate(Member entity, EntityValidationResultsBuilder results)
         {
             var today = DateTime.Today;
@@ -57,6 +60,33 @@ namespace biz.dfch.CS.Club.Core.Server.ApplicationData.Validators
                 var errormsg = String.Format("Birthday: Parameter validation FAILED. Parameter ['{0}'] must be less than '{1}'.", entity.Birthday, birthdayMinimum.ToString("yyyy-MM-dd"));
                 results.AddPropertyError(errormsg);
                 return;
+            }
+        }
+
+        public void SubscriptionType_Validate(Member entity, EntityValidationResultsBuilder results)
+        {
+            if(!SubscriptionType.IsValidType(entity.SubscriptionType))
+            {
+                var errormsg = String.Format("SubscriptionType: Parameter validation FAILED. Parameter ['{0}'] must a valid subscription type.", entity.SubscriptionType);
+                results.AddPropertyError(errormsg);
+                return;
+            }
+        }
+
+        public void LegalEntity_Validate(Member entity, EntityValidationResultsBuilder results)
+        {
+            if (!SubscriptionType.IsValidType(entity.SubscriptionType))
+            {
+                return;
+            }
+            if (entity.SubscriptionType.Contains("Organisation") || entity.SubscriptionType.Contains("Association"))
+            {
+                if (String.IsNullOrWhiteSpace(entity.LegalEntity))
+                {
+                    var errormsg = String.Format("LegalEntity: Parameter validation FAILED. Parameter must not be null or empty for the specified subscription type '{0}'.", entity.SubscriptionType);
+                    results.AddPropertyError(errormsg);
+                    return;
+                }
             }
         }
     }

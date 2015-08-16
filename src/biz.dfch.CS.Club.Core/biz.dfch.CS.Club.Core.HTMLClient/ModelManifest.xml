@@ -2,11 +2,11 @@
 <ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Documents>
     <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Properties\ApplicationData\Members.lsml" Checksum="325BB7DC995AD5983F7B893E3A7D1F0F6B58DB6F086809678113C50029C85BAB" />
-    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Properties\Client.lsml" Checksum="8503146D2202632472ADF27A7A6BCEAA1E67D75E6489A82B00B955D4D1987A95" />
+    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Properties\Client.lsml" Checksum="7B9B660CB0D3A6AC03F93967531D758F9C2897F4F6299E8F2FD068B48FC518E4" />
     <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Properties\Proxies.lsml" Checksum="1DAE38E680504F506ADFDD58EB6B930B51718462C78BAA61A3068393142091EF" />
     <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Screens\AddEditMember.lsml" Checksum="E8DFD5D0AE77C3A83D60CF3FD78D58EF9EF2940D9E7E118DC730AEF2BCBA69BE" />
     <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Screens\BrowseMembers.lsml" Checksum="726E693ACECB953D7B0EEC8B6D3395C19205D2D0C945D9073446B0453A5C5EF3" />
     <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Screens\Home.lsml" Checksum="54E2080BB5082F9565077771DA78B9F0576A2CD16223CBBEE29E1DE3301597AF" />
-    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Screens\ViewMember.lsml" Checksum="CB83BA2CC4E30CE9C90AF731F91A2E0B2BB44309DB4D3E9440302AD52955A6E6" />
+    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Screens\ViewMember.lsml" Checksum="1F9485252F5E2649F9A7104C2AD787F0B8CDBD4C111C6DCC2AF2BD1FDB29CF41" />
   </Documents>
 </ModelDocumentManifest>

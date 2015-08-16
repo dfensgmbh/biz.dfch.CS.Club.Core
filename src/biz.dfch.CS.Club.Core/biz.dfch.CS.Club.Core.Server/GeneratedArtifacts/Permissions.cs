@@ -20,6 +20,26 @@ namespace LightSwitchApplication
         /// Provides the ability to manage security for the application.
         /// </summary>
         public const string SecurityAdministration = global::Microsoft.LightSwitch.Security.ApplicationPermissions.SecurityAdministration;
+        /// <summary>
+        /// AnonymousCanSubscribe
+        /// </summary>
+        public const string AnonymousCanSubscribe = "LightSwitchApplication:AnonymousCanSubscribe";
+        /// <summary>
+        /// Members_CanCreate
+        /// </summary>
+        public const string Members_CanCreate = "LightSwitchApplication:Members_CanCreate";
+        /// <summary>
+        /// Members_CanRead
+        /// </summary>
+        public const string Members_CanRead = "LightSwitchApplication:Members_CanRead";
+        /// <summary>
+        /// Members_CanUpdate
+        /// </summary>
+        public const string Members_CanUpdate = "LightSwitchApplication:Members_CanUpdate";
+        /// <summary>
+        /// Members_CanDelete
+        /// </summary>
+        public const string Members_CanDelete = "LightSwitchApplication:Members_CanDelete";
 
         /// <summary>
         /// Gets all permissions defined for the application.  This includes system and user-defined permissions.

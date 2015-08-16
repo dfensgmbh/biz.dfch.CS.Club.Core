@@ -538,6 +538,16 @@
         /// </field>
         beforeApplyChanges: [lightSwitchApplication.ViewMember],
         /// <field>
+        /// Called to determine if the deleteEntity method can be executed.
+        /// <br/>canExecute(msls.application.ViewMember screen)
+        /// </field>
+        deleteEntity_canExecute: [lightSwitchApplication.ViewMember],
+        /// <field>
+        /// Called to execute the deleteEntity method.
+        /// <br/>execute(msls.application.ViewMember screen)
+        /// </field>
+        deleteEntity_execute: [lightSwitchApplication.ViewMember],
+        /// <field>
         /// Called after the Details content item has been rendered.
         /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
         /// </field>

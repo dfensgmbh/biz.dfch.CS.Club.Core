@@ -117,6 +117,7 @@
         ViewMember: $defineScreen(ViewMember, [
             { name: "Member", kind: "local", type: lightSwitchApplication.Member }
         ], [
+            { name: "deleteEntity" }
         ]),
 
         showAddEditMember: $defineShowScreen(function showAddEditMember(Member, options) {
