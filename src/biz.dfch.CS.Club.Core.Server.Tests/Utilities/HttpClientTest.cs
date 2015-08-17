@@ -28,10 +28,10 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using Telerik.JustMock.Helpers;
 
-namespace biz.dfch.CS.Club.Core.Server.Tests
+namespace biz.dfch.CS.Club.Core.Server.Tests.Utilities
 {
     [TestClass]
-    public class UtilitiesHttpClient
+    public class HttpClientTest
     {
         [TestMethod]
         public void InvokingGetSucceeds()
@@ -47,8 +47,8 @@ namespace biz.dfch.CS.Club.Core.Server.Tests
             //Mock.Arrange(() => systemNetHttpHttpClient.GetAsync(Arg.AnyString)).Returns(response);
             
             var cl = new biz.dfch.CS.Club.Core.Server.Utilities.HttpClient();
-            //var result = cl.Invoke("GET", "http://www.example.com", null, null);
-            var result = cl.Invoke("POST", "http://www.example.com", null, null);
+            var result = cl.Invoke("GET", "http://www.example.com", null, null);
+            //var result = cl.Invoke("POST", "http://www.example.com", null, null);
 
             Assert.IsNotNull(result);
         }

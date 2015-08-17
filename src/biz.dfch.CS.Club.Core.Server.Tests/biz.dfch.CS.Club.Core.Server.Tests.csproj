@@ -57,8 +57,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ApplicationDataMembersTests.cs" />
-    <Compile Include="UtilitiesHttpClient.cs" />
+    <Compile Include="ApplicationData\Members\ValidationFrameworkTest.cs" />
+    <Compile Include="ApplicationData\Members\MembersControllerTest.cs" />
+    <Compile Include="ApplicationData\Members\ValidationTest.cs" />
+    <Compile Include="Utilities\HttpClientTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

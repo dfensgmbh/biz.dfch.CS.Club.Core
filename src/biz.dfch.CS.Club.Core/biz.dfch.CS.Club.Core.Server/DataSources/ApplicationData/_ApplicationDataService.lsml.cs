@@ -6,6 +6,8 @@ using System.Web.Configuration;
 using biz.dfch.CS.Club.Core.Server.ApplicationData.Members;
 using Microsoft.LightSwitch;
 using Microsoft.LightSwitch.Security.Server;
+using biz.dfch.CS.Club.Core.Server.Utilities;
+
 namespace LightSwitchApplication
 {
     public partial class ApplicationDataService
@@ -59,7 +61,15 @@ namespace LightSwitchApplication
                     isCtxCreated = true;
                     ctx = ServerApplicationContext.CreateContext();
                 }
-                var controller = new MembersController(ctx.Application.User.Name, ctx.Application.User.Roles, ctx.Application.User.EffectivePermissions);
+                var controller = new MembersController(
+                    new Identity() 
+                    { 
+                        Username = ctx.Application.User.Name
+                        , 
+                        Roles = ctx.Application.User.Roles
+                        , 
+                        Permissions = ctx.Application.User.EffectivePermissions 
+                    });
                 if (controller.Inserting(entity))
                 {
                     ctx.DataWorkspace.ApplicationData.SaveChanges();
@@ -93,7 +103,15 @@ namespace LightSwitchApplication
                     isCtxCreated = true;
                     ctx = ServerApplicationContext.CreateContext();
                 }
-                var controller = new MembersController(ctx.Application.User.Name, ctx.Application.User.Roles, ctx.Application.User.EffectivePermissions);
+                var controller = new MembersController(
+                    new Identity()
+                    {
+                        Username = ctx.Application.User.Name
+                        ,
+                        Roles = ctx.Application.User.Roles
+                        ,
+                        Permissions = ctx.Application.User.EffectivePermissions
+                    });
                 controller.Inserted(entity);
             }
             catch (Exception ex)

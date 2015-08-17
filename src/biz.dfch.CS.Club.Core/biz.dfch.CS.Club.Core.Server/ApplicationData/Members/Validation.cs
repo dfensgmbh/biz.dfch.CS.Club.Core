@@ -17,8 +17,9 @@ namespace biz.dfch.CS.Club.Core.Server.ApplicationData.Members
         private readonly int minimumMobileNumberLength = 9;
         private readonly String defaultCountryCode = "41";
 
-        public void MobileNumber_NormaliseAndValidate(Member entity, EntityValidationResultsBuilder results)
+        public bool MobileNumber_NormaliseAndValidate(Member entity, out String errormsg)
         {
+            errormsg = null;
             // normalise phone number to internation format
             // ie no leading zero, plus; space or hyphon
             var mobileNumber = entity.MobileNumber;
@@ -30,18 +31,16 @@ namespace biz.dfch.CS.Club.Core.Server.ApplicationData.Members
 
             if (mobileNumber.Length < minimumMobileNumberLength)
             {
-                var errormsg = String.Format("MobileNumber: Parameter validation FAILED. Parameter ['{0}'] must contain at least '{1}' digits.", entity.MobileNumber, minimumMobileNumberLength);
-                results.AddPropertyError(errormsg);
-                return;
+                errormsg = String.Format("MobileNumber: Parameter validation FAILED. Parameter ['{0}'] must contain at least '{1}' digits.", entity.MobileNumber, minimumMobileNumberLength);
+                return false;
             }
 
             var regex = new Regex("^\\d");
             var match = regex.Match(mobileNumber);
             if (!match.Success)
             {
-                var errormsg = String.Format("MobileNumber: Parameter validation FAILED. Parameter ['{0}'] must contain only digits.", entity.MobileNumber);
-                results.AddPropertyError(errormsg);
-                return;
+                errormsg = String.Format("MobileNumber: Parameter validation FAILED. Parameter ['{0}'] must contain only digits.", entity.MobileNumber);
+                return false;
             }
 
             if (minimumMobileNumberLength == mobileNumber.Length && !mobileNumber.StartsWith(defaultCountryCode))
@@ -49,45 +48,46 @@ namespace biz.dfch.CS.Club.Core.Server.ApplicationData.Members
                 mobileNumber = String.Concat(defaultCountryCode, mobileNumber);
             }
             entity.MobileNumber = mobileNumber;
+
+            return true;
         }
 
-        public void Birthday_Validate(Member entity, EntityValidationResultsBuilder results)
+        public bool Birthday_Validate(Member entity, out String errormsg)
         {
+            errormsg = null;
             var today = DateTime.Today;
             var birthdayMinimum = today.AddYears(-1 * mimimumAge);
             if (birthdayMinimum < entity.Birthday)
             {
-                var errormsg = String.Format("Birthday: Parameter validation FAILED. Parameter ['{0}'] must be less than '{1}'.", entity.Birthday, birthdayMinimum.ToString("yyyy-MM-dd"));
-                results.AddPropertyError(errormsg);
-                return;
+                errormsg = String.Format("Birthday: Parameter validation FAILED. Parameter ['{0}'] must be less than '{1}'.", entity.Birthday, birthdayMinimum.ToString("yyyy-MM-dd"));
+                return false;
             }
+            return true;
         }
 
-        public void SubscriptionType_Validate(Member entity, EntityValidationResultsBuilder results)
+        public bool SubscriptionType_Validate(Member entity, out String errormsg)
         {
-            if(!SubscriptionType.IsValidType(entity.SubscriptionType))
-            {
-                var errormsg = String.Format("SubscriptionType: Parameter validation FAILED. Parameter ['{0}'] must a valid subscription type.", entity.SubscriptionType);
-                results.AddPropertyError(errormsg);
-                return;
-            }
-        }
-
-        public void LegalEntity_Validate(Member entity, EntityValidationResultsBuilder results)
-        {
+            errormsg = null;
             if (!SubscriptionType.IsValidType(entity.SubscriptionType))
             {
-                return;
+                errormsg = String.Format("SubscriptionType: Parameter validation FAILED. Parameter ['{0}'] must a valid subscription type.", entity.SubscriptionType);
+                return false;
             }
+            return true;
+        }
+
+        public bool LegalEntity_Validate(Member entity, out String errormsg)
+        {
+            errormsg = null;
             if (entity.SubscriptionType.Contains("Organisation") || entity.SubscriptionType.Contains("Association"))
             {
                 if (String.IsNullOrWhiteSpace(entity.LegalEntity))
                 {
-                    var errormsg = String.Format("LegalEntity: Parameter validation FAILED. Parameter must not be null or empty for the specified subscription type '{0}'.", entity.SubscriptionType);
-                    results.AddPropertyError(errormsg);
-                    return;
+                    errormsg = String.Format("LegalEntity: Parameter validation FAILED. Parameter must not be null or empty for the specified subscription type '{0}'.", entity.SubscriptionType);
+                    return false;
                 }
             }
+            return true;
         }
     }
 }

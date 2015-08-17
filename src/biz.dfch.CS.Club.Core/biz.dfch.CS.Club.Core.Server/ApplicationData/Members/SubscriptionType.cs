@@ -47,7 +47,7 @@ namespace biz.dfch.CS.Club.Core.Server.ApplicationData.Members
             ,
             SponsorPerson
             ,
-            FullAssocication
+            FullAssociation
             ,
             FullOrganisation
             ,

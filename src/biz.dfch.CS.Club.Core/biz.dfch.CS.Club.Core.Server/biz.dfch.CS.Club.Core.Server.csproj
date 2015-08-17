@@ -195,6 +195,7 @@
   <ItemGroup>
     <Compile Include="ApplicationData\Members\SubscriptionType.cs" />
     <Compile Include="ApplicationData\Members\MembersController.cs" />
+    <Compile Include="Utilities\Identity.cs" />
     <Compile Include="Utilities\EnumUtil.cs" />
     <Compile Include="DataSources\ApplicationData\_ApplicationDataService.lsml.cs" />
     <Compile Include="Global.asax.cs">
