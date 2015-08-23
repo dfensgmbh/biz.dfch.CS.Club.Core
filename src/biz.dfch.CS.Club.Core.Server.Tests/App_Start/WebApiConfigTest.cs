@@ -22,6 +22,7 @@ using Microsoft.Data.Edm.Library;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.OData.Batch;
@@ -41,6 +42,9 @@ namespace LightSwitchApplication
             var mockedHttpConfiguration = Mock.Create<HttpConfiguration>();
             var mockedEndpointData = Mock.Create<IODataEndpointData>();
             mockedEndpoint = Mock.Create<IODataEndpoint>();
+
+            Mock.SetupStatic(typeof(ConfigurationManager), StaticConstructor.Mocked);
+            Mock.Arrange(() => ConfigurationManager.AppSettings["Club.Server.ServerRoles"]).Returns("HOST,WORKER").MustBeCalled();
 
             Mock.Arrange(() => mockedEndpoint.GetContainerName()).Returns("TestContainer").MustBeCalled();
             Mock.Arrange(() => mockedEndpoint.GetModel()).Returns(new EdmModel()).MustBeCalled();
@@ -65,6 +69,9 @@ namespace LightSwitchApplication
             var mockedEndpointData = Mock.Create<IODataEndpointData>();
             mockedEndpoint = Mock.Create<IODataEndpoint>();
 
+            Mock.SetupStatic(typeof(ConfigurationManager), StaticConstructor.Mocked);
+            Mock.Arrange(() => ConfigurationManager.AppSettings["Club.Server.ServerRoles"]).Returns("HOST,WORKER").MustBeCalled();
+
             Mock.Arrange(() => mockedEndpoint.GetContainerName()).Returns("TestContainer").OccursOnce();
             Mock.Arrange(() => mockedEndpoint.GetModel()).Returns(new EdmModel()).OccursNever();
             Mock.Arrange(() => mockedEndpointData.ServerRole).Returns(ServerRole.NONE).MustBeCalled();
@@ -88,6 +95,9 @@ namespace LightSwitchApplication
             var mockedEndpointData = Mock.Create<IODataEndpointData>();
             mockedEndpoint = Mock.Create<IODataEndpoint>();
 
+            Mock.SetupStatic(typeof(ConfigurationManager), StaticConstructor.Mocked);
+            Mock.Arrange(() => ConfigurationManager.AppSettings["Club.Server.ServerRoles"]).Returns("HOST,WORKER").MustBeCalled();
+
             Mock.Arrange(() => mockedEndpoint.GetContainerName()).Returns("Administration").OccursAtMost(2);
             Mock.Arrange(() => mockedEndpoint.GetModel()).Returns(new EdmModel()).OccursNever();
             Mock.Arrange(() => mockedEndpointData.ServerRole).Returns(ServerRole.WORKER).MustBeCalled();
@@ -110,6 +120,9 @@ namespace LightSwitchApplication
             var mockedHttpConfiguration = Mock.Create<HttpConfiguration>();
             var endpointName = "api/Administration.svc";
             Mock.Arrange(() => mockedHttpConfiguration.Routes.MapODataServiceRoute(endpointName, endpointName, Arg.IsAny<IEdmModel>(), Arg.IsAny<ODataBatchHandler>())).MustBeCalled();
+
+            Mock.SetupStatic(typeof(ConfigurationManager), StaticConstructor.Mocked);
+            Mock.Arrange(() => ConfigurationManager.AppSettings["Club.Server.ServerRoles"]).Returns("HOST,WORKER").MustBeCalled();
 
             var endpoints = new List<Lazy<IODataEndpoint, IODataEndpointData>>();
 
