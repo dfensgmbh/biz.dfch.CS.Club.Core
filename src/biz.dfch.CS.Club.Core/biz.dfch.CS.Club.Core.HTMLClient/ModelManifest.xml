@@ -2,11 +2,15 @@
 <ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Documents>
     <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Properties\ApplicationData\Members.lsml" Checksum="325BB7DC995AD5983F7B893E3A7D1F0F6B58DB6F086809678113C50029C85BAB" />
-    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Properties\Client.lsml" Checksum="7B9B660CB0D3A6AC03F93967531D758F9C2897F4F6299E8F2FD068B48FC518E4" />
+    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Properties\Client.lsml" Checksum="617061812AB794DAA9F6FCE1DBAC4B1183C852581B9B96A41B46DEF34200F6B0" />
     <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Properties\Proxies.lsml" Checksum="1DAE38E680504F506ADFDD58EB6B930B51718462C78BAA61A3068393142091EF" />
-    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Screens\AddEditMember.lsml" Checksum="E8DFD5D0AE77C3A83D60CF3FD78D58EF9EF2940D9E7E118DC730AEF2BCBA69BE" />
+    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Screens\AddEditMember.lsml" Checksum="664075ADA592F80A243CCEDE60B4306C0115DCD20D9D6FF2A45EB544D85D6DF1" />
     <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Screens\BrowseMembers.lsml" Checksum="726E693ACECB953D7B0EEC8B6D3395C19205D2D0C945D9073446B0453A5C5EF3" />
     <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Screens\Home.lsml" Checksum="54E2080BB5082F9565077771DA78B9F0576A2CD16223CBBEE29E1DE3301597AF" />
-    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Screens\ViewMember.lsml" Checksum="1F9485252F5E2649F9A7104C2AD787F0B8CDBD4C111C6DCC2AF2BD1FDB29CF41" />
+    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Screens\ViewMember.lsml" Checksum="8E0663416DB8CEC3EA7454B630F8B23AB342C980FE0F1A83C62618118533041E" />
+    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Screens\BrowseMemberDatas.lsml" Checksum="903AC77EB5AF3F4A40DB6ACB11CBFE0A7B9A225B1BD4D2C4AE7631CD87DD845F" />
+    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Screens\AddEditMemberData.lsml" Checksum="CE9BCEC83696B0DE08C8331E6CDFB0CC849C6CEF4CBD73B224E930183C375576" />
+    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Screens\ViewMemberData.lsml" Checksum="F8C8789CBE5D3341310448E894B17EC3E37BEF8930328ECA954C4F8891B71C84" />
+    <Document FullPath="C:\Github\biz.dfch.CS.Club.Core\src\biz.dfch.CS.Club.Core\biz.dfch.CS.Club.Core.HTMLClient\Properties\ApplicationData\MemberDatas.lsml" Checksum="B0E3403E27E9457FC3373FC4C354F598B2639D8581A6915C40CD23E67F673C2D" />
   </Documents>
 </ModelDocumentManifest>

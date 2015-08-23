@@ -1,4 +1,22 @@
-﻿using System;
+﻿/**
+ *
+ *
+ * Copyright 2015 Ronald Rink, d-fens GmbH
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using biz.dfch.CS.Club.Core.Server.ApplicationData.Members;
@@ -7,6 +25,8 @@ using LightSwitchApplication;
 using Microsoft.LightSwitch;
 using Telerik.JustMock;
 using biz.dfch.CS.Club.Core.Server.Utilities;
+using MSTestExtensions;
+using biz.dfch.CS.Club.Core.Server.Utilities.Clickatell;
 
 namespace biz.dfch.CS.Club.Core.Server.Tests.ApplicationData.Members
 {
@@ -62,15 +82,15 @@ namespace biz.dfch.CS.Club.Core.Server.Tests.ApplicationData.Members
             var permissions = new List<string>();
             permissions.Add("some-arbitrary-permission");
             var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAnonymousRegistrationIdentity());
-            Mock.Arrange(() => controller.AnonymousRegistration(Arg.IsAny<Member>())).Returns(true).OccursOnce();
+            Mock.Arrange(() => controller.AnonymousRegistration1(Arg.IsAny<Member>())).Returns(true).OccursOnce();
             Mock.Arrange(() => controller.AdminRegistration(Arg.IsAny<Member>())).Returns(false).OccursNever();
 
             // Act
             var result = controller.Inserting(entity);
 
             // Assert
-            Mock.Assert(controller);
             Assert.IsTrue(result);
+            Mock.Assert(controller);
         }
 
         [TestMethod]
@@ -82,56 +102,100 @@ namespace biz.dfch.CS.Club.Core.Server.Tests.ApplicationData.Members
             Mock.Arrange(() => entity.Modified).Returns(DateTimeOffset.Now);
 
             var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAdminRegistrationIdentity());
-            Mock.Arrange(() => controller.AnonymousRegistration(Arg.IsAny<Member>())).Returns(false).OccursNever();
+            Mock.Arrange(() => controller.AnonymousRegistration1(Arg.IsAny<Member>())).Returns(false).OccursNever();
             Mock.Arrange(() => controller.AdminRegistration(Arg.IsAny<Member>())).Returns(true).OccursOnce();
 
             // Act
             var result = controller.Inserting(entity);
 
             // Assert
-            Mock.Assert(controller);
             Assert.IsTrue(result);
+            Mock.Assert(controller);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void AnonymousRegistrationFails()
+        public void AnonymousRegistration1ThrowsInvalidOperationException()
         {
             // Arrange
             var entity = Mock.Create<Member>();
             var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAnonymousRegistrationIdentity());
-            Mock.Arrange(() => controller.AnonymousRegistration(Arg.IsAny<Member>())).CallOriginal().MustBeCalled();
+            Mock.Arrange(() => controller.AnonymousRegistration1(Arg.IsAny<Member>())).CallOriginal().MustBeCalled();
 
             // Act
-            var result = controller.AnonymousRegistration(entity);
-
             // Assert
-            Mock.Assert(controller);
-            Assert.IsFalse(result);
-            Assert.AreNotEqual(SubscriptionType.TypeEnum.TrialPerson.ToString(), entity.SubscriptionType);
+            ThrowsAssert.Throws<InvalidOperationException>(() => controller.AnonymousRegistration1(entity));
         }
 
         [TestMethod]
-        public void AnonymousRegistrationSucceeds()
+        public void AnonymousRegistration1Succeeds()
         {
             // Arrange
             var entity = Mock.Create<Member>();
+            entity.MobileNumber = "2799912345";
             Mock.Arrange(() => entity.Created).Returns(DateTimeOffset.Now);
             Mock.Arrange(() => entity.Modified).Returns(DateTimeOffset.Now);
             var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAnonymousRegistrationIdentity());
-            Mock.Arrange(() => controller.AnonymousRegistration(Arg.IsAny<Member>())).CallOriginal().MustBeCalled();
+            Mock.Arrange(() => controller.AnonymousRegistration1(Arg.IsAny<Member>())).CallOriginal().MustBeCalled();
 
             // Act
-            var result = controller.AnonymousRegistration(entity);
+            var result = controller.AnonymousRegistration1(entity);
 
             // Assert
+            Assert.IsTrue(result);
+            Mock.Assert(controller);
             Assert.IsTrue(entity.Active.HasValue);
             Assert.IsFalse(entity.Active.Value);
             Assert.AreEqual(SubscriptionType.TypeEnum.TrialPerson.ToString(), entity.SubscriptionType);
             Assert.AreEqual(entity.Created, entity.SubscriptionStarts);
             Assert.AreEqual(entity.Created.Value.AddDays(30), entity.SubscriptionEnds);
-            Mock.Assert(controller);
+        }
+
+        [TestMethod]
+        public void AnonymousRegistration2Succeeds()
+        {
+            // Arrange
+            var entity = Mock.Create<Member>();
+            entity.MobileNumber = "2799912345";
+            //Mock.Arrange(() => entity.Created).Returns(DateTimeOffset.Now);
+            //Mock.Arrange(() => entity.Modified).Returns(DateTimeOffset.Now);
+            var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAnonymousRegistrationIdentity());
+
+            var provider = Mock.Create<IShortMessageServiceProvider>();
+            Mock.Arrange(() => provider.SendMessage(Arg.IsAny<IShortMessage>())).IgnoreInstance().Returns("arbitrary-message-id").MustBeCalled();
+            Mock.Arrange(() => provider.HasError()).IgnoreInstance().Returns(false).MustBeCalled();
+
+            // Act
+            var result = controller.AnonymousRegistration2(entity);
+
+            // Assert
             Assert.IsTrue(result);
+            Mock.Assert(controller);
+            Mock.Assert(provider);
+            //Assert.AreEqual(entity.Created, entity.SubscriptionStarts);
+            //Assert.AreEqual(entity.Created.Value.AddDays(30), entity.SubscriptionEnds);
+        }
+
+        [TestMethod]
+        public void AnonymousRegistration2Fails()
+        {
+            // Arrange
+            var entity = Mock.Create<Member>();
+            entity.MobileNumber = "invalid-number";
+            Mock.Arrange(() => entity.Delete()).MustBeCalled();
+            var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAnonymousRegistrationIdentity());
+
+            var provider = Mock.Create<IShortMessageServiceProvider>();
+            Mock.Arrange(() => provider.SendMessage(Arg.IsAny<IShortMessage>())).IgnoreInstance().Returns<string>(null).MustBeCalled();
+            Mock.Arrange(() => provider.HasError()).IgnoreInstance().Returns(true).MustBeCalled();
+
+            // Act
+            var result = controller.AnonymousRegistration2(entity);
+
+            // Assert
+            Assert.IsFalse(result);
+            Mock.Assert(entity);
+            Mock.Assert(controller);
+            Mock.Assert(provider);
         }
 
         [TestMethod]
@@ -167,13 +231,13 @@ namespace biz.dfch.CS.Club.Core.Server.Tests.ApplicationData.Members
             var result = controller.AdminRegistration(entity);
 
             // Assert
+            Assert.IsTrue(result);
+            Mock.Assert(controller);
             Assert.IsTrue(entity.Active.HasValue);
             Assert.IsTrue(entity.Active.Value);
             Assert.IsTrue(SubscriptionType.IsValidType(entity.SubscriptionType));
             Assert.AreEqual(entity.Created, entity.SubscriptionStarts);
             Assert.AreEqual(null, entity.SubscriptionEnds);
-            Mock.Assert(controller);
-            Assert.IsTrue(result);
         }
     }
 }

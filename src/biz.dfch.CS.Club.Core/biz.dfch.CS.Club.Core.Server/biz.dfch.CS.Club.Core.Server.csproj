@@ -57,8 +57,32 @@
     <NoWarn>1522</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Data.Edm.5.6.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Data.OData.5.6.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.LightSwitch.Extensions.Server">
       <HintPath>..\_Pvt_Extensions\Microsoft.LightSwitch.Extensions\Server\Reference\Microsoft.LightSwitch.Extensions.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Core, Version=6.13.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.OData.Core.6.13.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.OData.Edm, Version=6.13.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.OData.Edm.6.13.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=6.13.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Spatial.6.13.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System">
       <ProjectCritical>True</ProjectCritical>
@@ -69,6 +93,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations">
       <ProjectCritical>True</ProjectCritical>
     </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
       <ProjectCritical>True</ProjectCritical>
     </Reference>
@@ -79,9 +104,41 @@
       <ProjectCritical>True</ProjectCritical>
     </Reference>
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Runtime.Serialization">
       <ProjectCritical>True</ProjectCritical>
+    </Reference>
+    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.OData.5.7.0\lib\net45\System.Web.Http.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.OData.5.7.0\lib\net45\System.Web.OData.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml">
       <ProjectCritical>True</ProjectCritical>
@@ -141,16 +198,6 @@
       <HintPath>$(LightSwitchSDKPath)\Server\System.ServiceModel.PollingDuplex.dll</HintPath>
       <ProjectCritical>True</ProjectCritical>
     </Reference>
-    <Reference Include="Microsoft.Data.Edm">
-      <HintPath>$(LightSwitchSDKPath)\Server\Microsoft.Data.Edm.dll</HintPath>
-      <Private>True</Private>
-      <ProjectCritical>True</ProjectCritical>
-    </Reference>
-    <Reference Include="Microsoft.Data.OData">
-      <HintPath>$(LightSwitchSDKPath)\Server\Microsoft.Data.OData.dll</HintPath>
-      <Private>True</Private>
-      <ProjectCritical>True</ProjectCritical>
-    </Reference>
     <Reference Include="Microsoft.Data.Services">
       <HintPath>$(LightSwitchSDKPath)\Server\Microsoft.Data.Services.dll</HintPath>
       <Private>True</Private>
@@ -163,11 +210,6 @@
     </Reference>
     <Reference Include="System.IdentityModel.Tokens.Jwt">
       <HintPath>$(NuGetPackagesFolder)\System.IdentityModel.Tokens.Jwt.1.0.0\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
-      <Private>True</Private>
-      <ProjectCritical>True</ProjectCritical>
-    </Reference>
-    <Reference Include="System.Spatial">
-      <HintPath>$(LightSwitchSDKPath)\Server\System.Spatial.dll</HintPath>
       <Private>True</Private>
       <ProjectCritical>True</ProjectCritical>
     </Reference>
@@ -193,8 +235,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationData\ApplicationDataBaseController.cs" />
+    <Compile Include="ApplicationData\MemberDatas\MemberDatasController.cs" />
+    <Compile Include="ApplicationData\MemberDatas\Validation.cs" />
     <Compile Include="ApplicationData\Members\SubscriptionType.cs" />
     <Compile Include="ApplicationData\Members\MembersController.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="DataSources\ApplicationData\MemberData.lsml.cs">
+      <DependentUpon>MemberDatas.lsml</DependentUpon>
+    </Compile>
+    <Compile Include="OdataServices\Clickatell\ClickatellEndpoint.cs" />
+    <Compile Include="OdataServices\Clickatell\ClickatellJsonCallbackData.cs" />
+    <Compile Include="OdataServices\Clickatell\ClickatellJsonCallback.cs" />
+    <Compile Include="OdataServices\Clickatell\ClickatellJsonCallbacksController.cs" />
+    <Compile Include="Utilities\OnetimeToken.cs" />
+    <Compile Include="Utilities\Clickatell\ResponseErrorDataMessage.cs" />
+    <Compile Include="Utilities\Clickatell\ResponseSuccessDataMessage.cs" />
+    <Compile Include="Utilities\Clickatell\ResponseErrorData.cs" />
+    <Compile Include="Utilities\Clickatell\ResponseError.cs" />
+    <Compile Include="Utilities\Clickatell\ResponseErrorDataMessageError.cs" />
+    <Compile Include="Utilities\Clickatell\ResponseSuccessData.cs" />
+    <Compile Include="Utilities\Clickatell\ResponseSuccess.cs" />
+    <Compile Include="Utilities\Clickatell\ClickatellShortMessageProvider.cs" />
+    <Compile Include="Utilities\Clickatell\IShortMessageServiceProvider.cs" />
+    <Compile Include="Utilities\Clickatell\MessageInternal.cs" />
+    <Compile Include="Utilities\Clickatell\IShortMessage.cs" />
+    <Compile Include="Utilities\Clickatell\Message.cs" />
     <Compile Include="Utilities\Identity.cs" />
     <Compile Include="Utilities\EnumUtil.cs" />
     <Compile Include="DataSources\ApplicationData\_ApplicationDataService.lsml.cs" />
@@ -220,6 +286,7 @@
     <Content Include="Web.config" />
     <LightSwitchModel Include="Properties\DataSources\ApplicationData.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\Members.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\MemberDatas.lsml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -237,7 +304,16 @@
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\biz.dfch.CS.Club.Contracts\biz.dfch.CS.Club.Contracts.csproj">
+      <Project>{20c27093-192c-4c0c-ac2e-ddedd7639fa9}</Project>
+      <Name>biz.dfch.CS.Club.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -269,6 +345,11 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

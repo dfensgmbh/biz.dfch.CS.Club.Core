@@ -42,6 +42,10 @@ namespace LightSwitchApplication.Implementation
     #region Protected Methods
         protected override object CreateObject(global::System.Type type)
         {
+            if (type == typeof(global::LightSwitchApplication.Implementation.MemberData))
+            {
+                return new global::LightSwitchApplication.Implementation.MemberData();
+            }
             if (type == typeof(global::LightSwitchApplication.Implementation.Member))
             {
                 return new global::LightSwitchApplication.Implementation.Member();
@@ -62,6 +66,10 @@ namespace LightSwitchApplication.Implementation
     
         protected override global::Microsoft.LightSwitch.Internal.IEntityImplementation CreateEntityImplementation<T>()
         {
+            if (typeof(T) == typeof(global::LightSwitchApplication.MemberData))
+            {
+                return new global::LightSwitchApplication.Implementation.MemberData();
+            }
             if (typeof(T) == typeof(global::LightSwitchApplication.Member))
             {
                 return new global::LightSwitchApplication.Implementation.Member();
@@ -111,6 +119,10 @@ namespace LightSwitchApplication.Implementation
     {
         global::System.Type global::Microsoft.LightSwitch.Internal.ITypeMappingProvider.GetImplementationType(global::System.Type definitionType)
         {
+            if (typeof(global::LightSwitchApplication.MemberData) == definitionType)
+            {
+                return typeof(global::LightSwitchApplication.Implementation.MemberData);
+            }
             if (typeof(global::LightSwitchApplication.Member) == definitionType)
             {
                 return typeof(global::LightSwitchApplication.Implementation.Member);
@@ -118,6 +130,41 @@ namespace LightSwitchApplication.Implementation
             return null;
         }
     }
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "12.1.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class MemberData :
+        global::LightSwitchApplication.MemberData.DetailsClass.IImplementation,
+        global::Microsoft.LightSwitch.Internal.ICreatedModifiedPropertiesImplementation
+    
+    {
+    
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+    }
+    
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "12.1.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public partial class Member :

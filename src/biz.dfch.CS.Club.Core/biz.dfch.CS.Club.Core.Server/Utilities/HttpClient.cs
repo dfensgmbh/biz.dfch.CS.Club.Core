@@ -13,22 +13,46 @@ namespace biz.dfch.CS.Club.Core.Server.Utilities
     {
         private readonly string _UserAgentDefault = "d-fens HttpClient";
         private readonly string _ContentTypeDefault = "application/json";
-        private readonly int _TimeoutSecDefault = 90;
+        private int _TimeoutSec = 90;
+        public int TimeoutSec
+        {
+            get
+            {
+                return this._TimeoutSec;
+            }
+            set
+            {
+                this._TimeoutSec = value;
+            }
+        }
+
+        private bool _FailOnErrorStatusCode;
+        public bool FailOnErrorStatusCode
+        {
+            get
+            {
+                return this._FailOnErrorStatusCode;
+            }
+            set
+            {
+                this._FailOnErrorStatusCode = value;
+            }
+        }
+
+        public HttpClient(bool failOnErrorStatusCode = true)
+        {
+            FailOnErrorStatusCode = failOnErrorStatusCode;
+        }
 
         public String Invoke(
-            string Method
-            ,
-            string Uri
-            ,
-            string Body
-            ,
-            IDictionary<String, String> Headers
-            )
+            string Method,
+            string Uri,
+            string Body,
+            IDictionary<String, String> Headers)
         {
             var cl = new System.Net.Http.HttpClient();
             cl.BaseAddress = new Uri(Uri);
 
-            int _TimeoutSec = _TimeoutSecDefault;
             cl.Timeout = new TimeSpan(0, 0, _TimeoutSec);
 
             string _ContentType = _ContentTypeDefault;
@@ -38,9 +62,6 @@ namespace biz.dfch.CS.Club.Core.Server.Utilities
                 Headers.Remove("Content-Type");
             }
             cl.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(_ContentType));
-
-            var _CredentialBase64 = "RWRnYXJTY2huaXR0ZW5maXR0aWNoOlJvY2taeno=";
-            cl.DefaultRequestHeaders.Add("Authorization", String.Format("Basic {0}", _CredentialBase64));
 
             var _UserAgent = _UserAgentDefault;
             if (null != Headers && Headers.ContainsKey("User-Agent"))
@@ -58,51 +79,53 @@ namespace biz.dfch.CS.Club.Core.Server.Utilities
                 }
             }
 
-        HttpResponseMessage response;
-        var _Method = new HttpMethod(Method);
+            HttpResponseMessage response;
+            var _Method = new HttpMethod(Method);
 
-        switch (_Method.ToString().ToUpper())
-        {
-        case "GET":
-        case "HEAD":
-	        // synchronous request without the need for .ContinueWith() or await
-	        response = cl.GetAsync(Uri).Result;
-	        break;
-        case "POST":
-	        {
-	        // Construct an HttpContent from a StringContent
-	        HttpContent _Body = new StringContent(Body);
-	        // and add the header to this object instance
-	        // optional: add a formatter option to it as well
-	        _Body.Headers.ContentType = new MediaTypeHeaderValue(_ContentType);
-	        // synchronous request without the need for .ContinueWith() or await
-	        response = cl.PostAsync(Uri, _Body).Result;
-	        }
-	        break;
-        case "PUT":
-	        {
-	        // Construct an HttpContent from a StringContent
-	        HttpContent _Body = new StringContent(Body);
-	        // and add the header to this object instance
-	        // optional: add a formatter option to it as well
-	        _Body.Headers.ContentType = new MediaTypeHeaderValue(_ContentType);
-	        // synchronous request without the need for .ContinueWith() or await
-	        response = cl.PutAsync(Uri, _Body).Result;
-	        }
-	        break;
-        case "DELETE":
-	        response = cl.DeleteAsync(Uri).Result;
-	        break;
-        default:
-	        throw new NotImplementedException();
-	        break;
-        }
-        // either this - or check the status to retrieve more information
-        response.EnsureSuccessStatusCode();
-        // get the rest/content of the response in a synchronous way
-        var content = response.Content.ReadAsStringAsync().Result;
-
-        return content;
+            switch (_Method.ToString().ToUpper())
+            {
+            case "GET":
+            case "HEAD":
+	            // synchronous request without the need for .ContinueWith() or await
+	            response = cl.GetAsync(Uri).Result;
+	            break;
+            case "POST":
+	            {
+	            // Construct an HttpContent _from a StringContent
+	            HttpContent _Body = new StringContent(Body);
+	            // and add the header to this object instance
+	            // optional: add a formatter option to it as well
+	            _Body.Headers.ContentType = new MediaTypeHeaderValue(_ContentType);
+	            // synchronous request without the need for .ContinueWith() or await
+	            response = cl.PostAsync(Uri, _Body).Result;
+	            }
+	            break;
+            case "PUT":
+	            {
+	            // Construct an HttpContent _from a StringContent
+	            HttpContent _Body = new StringContent(Body);
+	            // and add the header to this object instance
+	            // optional: add a formatter option to it as well
+	            _Body.Headers.ContentType = new MediaTypeHeaderValue(_ContentType);
+	            // synchronous request without the need for .ContinueWith() or await
+	            response = cl.PutAsync(Uri, _Body).Result;
+	            }
+	            break;
+            case "DELETE":
+	            response = cl.DeleteAsync(Uri).Result;
+	            break;
+            default:
+	            throw new NotImplementedException();
+	            break;
+            }
+            // either this - or check the status to retrieve more information
+            if(_FailOnErrorStatusCode)
+            {
+                response.EnsureSuccessStatusCode();
+            }
+            // get the rest/content of the response in a synchronous way
+            var content = response.Content.ReadAsStringAsync().Result;
+            return content;
         }
     }
 }

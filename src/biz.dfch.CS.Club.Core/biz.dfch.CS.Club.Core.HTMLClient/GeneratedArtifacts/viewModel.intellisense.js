@@ -123,6 +123,22 @@
             data: lightSwitchApplication.Member,
             value: String
         },
+        LegalEntity: {
+            _$class: msls.ContentItem,
+            _$name: "LegalEntity",
+            _$parentName: "right",
+            screen: lightSwitchApplication.AddEditMember,
+            data: lightSwitchApplication.Member,
+            value: String
+        },
+        SubscriptionType: {
+            _$class: msls.ContentItem,
+            _$name: "SubscriptionType",
+            _$parentName: "right",
+            screen: lightSwitchApplication.AddEditMember,
+            data: lightSwitchApplication.Member,
+            value: String
+        },
         Popups: {
             _$class: msls.ContentItem,
             _$name: "Popups",
@@ -211,7 +227,17 @@
         /// Called after the MobileNumber content item has been rendered.
         /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
         /// </field>
-        MobileNumber_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("MobileNumber"); }]
+        MobileNumber_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("MobileNumber"); }],
+        /// <field>
+        /// Called after the LegalEntity content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        LegalEntity_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("LegalEntity"); }],
+        /// <field>
+        /// Called after the SubscriptionType content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        SubscriptionType_postRender: [$element, function () { return new lightSwitchApplication.AddEditMember().findContentItem("SubscriptionType"); }]
     });
 
     lightSwitchApplication.BrowseMembers.prototype._$contentItems = {
@@ -462,6 +488,14 @@
             data: lightSwitchApplication.Member,
             value: String
         },
+        SubscriptionStarts: {
+            _$class: msls.ContentItem,
+            _$name: "SubscriptionStarts",
+            _$parentName: "left",
+            screen: lightSwitchApplication.ViewMember,
+            data: lightSwitchApplication.Member,
+            value: Date
+        },
         right: {
             _$class: msls.ContentItem,
             _$name: "right",
@@ -513,6 +547,30 @@
         Modified: {
             _$class: msls.ContentItem,
             _$name: "Modified",
+            _$parentName: "right",
+            screen: lightSwitchApplication.ViewMember,
+            data: lightSwitchApplication.Member,
+            value: Date
+        },
+        LegalEntity: {
+            _$class: msls.ContentItem,
+            _$name: "LegalEntity",
+            _$parentName: "right",
+            screen: lightSwitchApplication.ViewMember,
+            data: lightSwitchApplication.Member,
+            value: String
+        },
+        SubscriptionType: {
+            _$class: msls.ContentItem,
+            _$name: "SubscriptionType",
+            _$parentName: "right",
+            screen: lightSwitchApplication.ViewMember,
+            data: lightSwitchApplication.Member,
+            value: String
+        },
+        SubscriptionEnds: {
+            _$class: msls.ContentItem,
+            _$name: "SubscriptionEnds",
             _$parentName: "right",
             screen: lightSwitchApplication.ViewMember,
             data: lightSwitchApplication.Member,
@@ -603,6 +661,11 @@
         /// </field>
         City_postRender: [$element, function () { return new lightSwitchApplication.ViewMember().findContentItem("City"); }],
         /// <field>
+        /// Called after the SubscriptionStarts content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        SubscriptionStarts_postRender: [$element, function () { return new lightSwitchApplication.ViewMember().findContentItem("SubscriptionStarts"); }],
+        /// <field>
         /// Called after the right content item has been rendered.
         /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
         /// </field>
@@ -636,7 +699,385 @@
         /// Called after the Modified content item has been rendered.
         /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
         /// </field>
-        Modified_postRender: [$element, function () { return new lightSwitchApplication.ViewMember().findContentItem("Modified"); }]
+        Modified_postRender: [$element, function () { return new lightSwitchApplication.ViewMember().findContentItem("Modified"); }],
+        /// <field>
+        /// Called after the LegalEntity content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        LegalEntity_postRender: [$element, function () { return new lightSwitchApplication.ViewMember().findContentItem("LegalEntity"); }],
+        /// <field>
+        /// Called after the SubscriptionType content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        SubscriptionType_postRender: [$element, function () { return new lightSwitchApplication.ViewMember().findContentItem("SubscriptionType"); }],
+        /// <field>
+        /// Called after the SubscriptionEnds content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        SubscriptionEnds_postRender: [$element, function () { return new lightSwitchApplication.ViewMember().findContentItem("SubscriptionEnds"); }]
+    });
+
+    lightSwitchApplication.BrowseMemberDatas.prototype._$contentItems = {
+        Tabs: {
+            _$class: msls.ContentItem,
+            _$name: "Tabs",
+            _$parentName: "RootContentItem",
+            screen: lightSwitchApplication.BrowseMemberDatas
+        },
+        MemberDataList: {
+            _$class: msls.ContentItem,
+            _$name: "MemberDataList",
+            _$parentName: "Tabs",
+            screen: lightSwitchApplication.BrowseMemberDatas,
+            data: lightSwitchApplication.BrowseMemberDatas,
+            value: lightSwitchApplication.BrowseMemberDatas
+        },
+        MemberDatas: {
+            _$class: msls.ContentItem,
+            _$name: "MemberDatas",
+            _$parentName: "MemberDataList",
+            screen: lightSwitchApplication.BrowseMemberDatas,
+            data: lightSwitchApplication.BrowseMemberDatas,
+            value: {
+                _$class: msls.VisualCollection,
+                screen: lightSwitchApplication.BrowseMemberDatas,
+                _$entry: {
+                    elementType: lightSwitchApplication.MemberData
+                }
+            }
+        },
+        rows: {
+            _$class: msls.ContentItem,
+            _$name: "rows",
+            _$parentName: "MemberDatas",
+            screen: lightSwitchApplication.BrowseMemberDatas,
+            data: lightSwitchApplication.MemberData,
+            value: lightSwitchApplication.MemberData
+        },
+        ParametersType: {
+            _$class: msls.ContentItem,
+            _$name: "ParametersType",
+            _$parentName: "rows",
+            screen: lightSwitchApplication.BrowseMemberDatas,
+            data: lightSwitchApplication.MemberData,
+            value: String
+        },
+        Parameters: {
+            _$class: msls.ContentItem,
+            _$name: "Parameters",
+            _$parentName: "rows",
+            screen: lightSwitchApplication.BrowseMemberDatas,
+            data: lightSwitchApplication.MemberData,
+            value: String
+        },
+        Popups: {
+            _$class: msls.ContentItem,
+            _$name: "Popups",
+            _$parentName: "RootContentItem",
+            screen: lightSwitchApplication.BrowseMemberDatas
+        }
+    };
+
+    msls._addEntryPoints(lightSwitchApplication.BrowseMemberDatas, {
+        /// <field>
+        /// Called when a new BrowseMemberDatas screen is created.
+        /// <br/>created(msls.application.BrowseMemberDatas screen)
+        /// </field>
+        created: [lightSwitchApplication.BrowseMemberDatas],
+        /// <field>
+        /// Called before changes on an active BrowseMemberDatas screen are applied.
+        /// <br/>beforeApplyChanges(msls.application.BrowseMemberDatas screen)
+        /// </field>
+        beforeApplyChanges: [lightSwitchApplication.BrowseMemberDatas],
+        /// <field>
+        /// Called after the MemberDataList content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        MemberDataList_postRender: [$element, function () { return new lightSwitchApplication.BrowseMemberDatas().findContentItem("MemberDataList"); }],
+        /// <field>
+        /// Called after the MemberDatas content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        MemberDatas_postRender: [$element, function () { return new lightSwitchApplication.BrowseMemberDatas().findContentItem("MemberDatas"); }],
+        /// <field>
+        /// Called after the rows content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        rows_postRender: [$element, function () { return new lightSwitchApplication.BrowseMemberDatas().findContentItem("rows"); }],
+        /// <field>
+        /// Called after the ParametersType content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        ParametersType_postRender: [$element, function () { return new lightSwitchApplication.BrowseMemberDatas().findContentItem("ParametersType"); }],
+        /// <field>
+        /// Called after the Parameters content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        Parameters_postRender: [$element, function () { return new lightSwitchApplication.BrowseMemberDatas().findContentItem("Parameters"); }]
+    });
+
+    lightSwitchApplication.AddEditMemberData.prototype._$contentItems = {
+        Tabs: {
+            _$class: msls.ContentItem,
+            _$name: "Tabs",
+            _$parentName: "RootContentItem",
+            screen: lightSwitchApplication.AddEditMemberData
+        },
+        Details: {
+            _$class: msls.ContentItem,
+            _$name: "Details",
+            _$parentName: "Tabs",
+            screen: lightSwitchApplication.AddEditMemberData,
+            data: lightSwitchApplication.AddEditMemberData,
+            value: lightSwitchApplication.AddEditMemberData
+        },
+        columns: {
+            _$class: msls.ContentItem,
+            _$name: "columns",
+            _$parentName: "Details",
+            screen: lightSwitchApplication.AddEditMemberData,
+            data: lightSwitchApplication.AddEditMemberData,
+            value: lightSwitchApplication.MemberData
+        },
+        left: {
+            _$class: msls.ContentItem,
+            _$name: "left",
+            _$parentName: "columns",
+            screen: lightSwitchApplication.AddEditMemberData,
+            data: lightSwitchApplication.MemberData,
+            value: lightSwitchApplication.MemberData
+        },
+        ParametersType: {
+            _$class: msls.ContentItem,
+            _$name: "ParametersType",
+            _$parentName: "left",
+            screen: lightSwitchApplication.AddEditMemberData,
+            data: lightSwitchApplication.MemberData,
+            value: String
+        },
+        right: {
+            _$class: msls.ContentItem,
+            _$name: "right",
+            _$parentName: "columns",
+            screen: lightSwitchApplication.AddEditMemberData,
+            data: lightSwitchApplication.MemberData,
+            value: lightSwitchApplication.MemberData
+        },
+        Parameters: {
+            _$class: msls.ContentItem,
+            _$name: "Parameters",
+            _$parentName: "right",
+            screen: lightSwitchApplication.AddEditMemberData,
+            data: lightSwitchApplication.MemberData,
+            value: String
+        },
+        Popups: {
+            _$class: msls.ContentItem,
+            _$name: "Popups",
+            _$parentName: "RootContentItem",
+            screen: lightSwitchApplication.AddEditMemberData
+        }
+    };
+
+    msls._addEntryPoints(lightSwitchApplication.AddEditMemberData, {
+        /// <field>
+        /// Called when a new AddEditMemberData screen is created.
+        /// <br/>created(msls.application.AddEditMemberData screen)
+        /// </field>
+        created: [lightSwitchApplication.AddEditMemberData],
+        /// <field>
+        /// Called before changes on an active AddEditMemberData screen are applied.
+        /// <br/>beforeApplyChanges(msls.application.AddEditMemberData screen)
+        /// </field>
+        beforeApplyChanges: [lightSwitchApplication.AddEditMemberData],
+        /// <field>
+        /// Called after the Details content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        Details_postRender: [$element, function () { return new lightSwitchApplication.AddEditMemberData().findContentItem("Details"); }],
+        /// <field>
+        /// Called after the columns content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        columns_postRender: [$element, function () { return new lightSwitchApplication.AddEditMemberData().findContentItem("columns"); }],
+        /// <field>
+        /// Called after the left content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        left_postRender: [$element, function () { return new lightSwitchApplication.AddEditMemberData().findContentItem("left"); }],
+        /// <field>
+        /// Called after the ParametersType content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        ParametersType_postRender: [$element, function () { return new lightSwitchApplication.AddEditMemberData().findContentItem("ParametersType"); }],
+        /// <field>
+        /// Called after the right content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        right_postRender: [$element, function () { return new lightSwitchApplication.AddEditMemberData().findContentItem("right"); }],
+        /// <field>
+        /// Called after the Parameters content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        Parameters_postRender: [$element, function () { return new lightSwitchApplication.AddEditMemberData().findContentItem("Parameters"); }]
+    });
+
+    lightSwitchApplication.ViewMemberData.prototype._$contentItems = {
+        Tabs: {
+            _$class: msls.ContentItem,
+            _$name: "Tabs",
+            _$parentName: "RootContentItem",
+            screen: lightSwitchApplication.ViewMemberData
+        },
+        Details: {
+            _$class: msls.ContentItem,
+            _$name: "Details",
+            _$parentName: "Tabs",
+            screen: lightSwitchApplication.ViewMemberData,
+            data: lightSwitchApplication.ViewMemberData,
+            value: lightSwitchApplication.ViewMemberData
+        },
+        columns: {
+            _$class: msls.ContentItem,
+            _$name: "columns",
+            _$parentName: "Details",
+            screen: lightSwitchApplication.ViewMemberData,
+            data: lightSwitchApplication.ViewMemberData,
+            value: lightSwitchApplication.MemberData
+        },
+        left: {
+            _$class: msls.ContentItem,
+            _$name: "left",
+            _$parentName: "columns",
+            screen: lightSwitchApplication.ViewMemberData,
+            data: lightSwitchApplication.MemberData,
+            value: lightSwitchApplication.MemberData
+        },
+        ParametersType: {
+            _$class: msls.ContentItem,
+            _$name: "ParametersType",
+            _$parentName: "left",
+            screen: lightSwitchApplication.ViewMemberData,
+            data: lightSwitchApplication.MemberData,
+            value: String
+        },
+        Parameters: {
+            _$class: msls.ContentItem,
+            _$name: "Parameters",
+            _$parentName: "left",
+            screen: lightSwitchApplication.ViewMemberData,
+            data: lightSwitchApplication.MemberData,
+            value: String
+        },
+        CreatedBy: {
+            _$class: msls.ContentItem,
+            _$name: "CreatedBy",
+            _$parentName: "left",
+            screen: lightSwitchApplication.ViewMemberData,
+            data: lightSwitchApplication.MemberData,
+            value: String
+        },
+        right: {
+            _$class: msls.ContentItem,
+            _$name: "right",
+            _$parentName: "columns",
+            screen: lightSwitchApplication.ViewMemberData,
+            data: lightSwitchApplication.MemberData,
+            value: lightSwitchApplication.MemberData
+        },
+        Created: {
+            _$class: msls.ContentItem,
+            _$name: "Created",
+            _$parentName: "right",
+            screen: lightSwitchApplication.ViewMemberData,
+            data: lightSwitchApplication.MemberData,
+            value: Date
+        },
+        ModifiedBy: {
+            _$class: msls.ContentItem,
+            _$name: "ModifiedBy",
+            _$parentName: "right",
+            screen: lightSwitchApplication.ViewMemberData,
+            data: lightSwitchApplication.MemberData,
+            value: String
+        },
+        Modified: {
+            _$class: msls.ContentItem,
+            _$name: "Modified",
+            _$parentName: "right",
+            screen: lightSwitchApplication.ViewMemberData,
+            data: lightSwitchApplication.MemberData,
+            value: Date
+        },
+        Popups: {
+            _$class: msls.ContentItem,
+            _$name: "Popups",
+            _$parentName: "RootContentItem",
+            screen: lightSwitchApplication.ViewMemberData
+        }
+    };
+
+    msls._addEntryPoints(lightSwitchApplication.ViewMemberData, {
+        /// <field>
+        /// Called when a new ViewMemberData screen is created.
+        /// <br/>created(msls.application.ViewMemberData screen)
+        /// </field>
+        created: [lightSwitchApplication.ViewMemberData],
+        /// <field>
+        /// Called before changes on an active ViewMemberData screen are applied.
+        /// <br/>beforeApplyChanges(msls.application.ViewMemberData screen)
+        /// </field>
+        beforeApplyChanges: [lightSwitchApplication.ViewMemberData],
+        /// <field>
+        /// Called after the Details content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        Details_postRender: [$element, function () { return new lightSwitchApplication.ViewMemberData().findContentItem("Details"); }],
+        /// <field>
+        /// Called after the columns content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        columns_postRender: [$element, function () { return new lightSwitchApplication.ViewMemberData().findContentItem("columns"); }],
+        /// <field>
+        /// Called after the left content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        left_postRender: [$element, function () { return new lightSwitchApplication.ViewMemberData().findContentItem("left"); }],
+        /// <field>
+        /// Called after the ParametersType content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        ParametersType_postRender: [$element, function () { return new lightSwitchApplication.ViewMemberData().findContentItem("ParametersType"); }],
+        /// <field>
+        /// Called after the Parameters content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        Parameters_postRender: [$element, function () { return new lightSwitchApplication.ViewMemberData().findContentItem("Parameters"); }],
+        /// <field>
+        /// Called after the CreatedBy content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        CreatedBy_postRender: [$element, function () { return new lightSwitchApplication.ViewMemberData().findContentItem("CreatedBy"); }],
+        /// <field>
+        /// Called after the right content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        right_postRender: [$element, function () { return new lightSwitchApplication.ViewMemberData().findContentItem("right"); }],
+        /// <field>
+        /// Called after the Created content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        Created_postRender: [$element, function () { return new lightSwitchApplication.ViewMemberData().findContentItem("Created"); }],
+        /// <field>
+        /// Called after the ModifiedBy content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        ModifiedBy_postRender: [$element, function () { return new lightSwitchApplication.ViewMemberData().findContentItem("ModifiedBy"); }],
+        /// <field>
+        /// Called after the Modified content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        Modified_postRender: [$element, function () { return new lightSwitchApplication.ViewMemberData().findContentItem("Modified"); }]
     });
 
 }(msls.application));

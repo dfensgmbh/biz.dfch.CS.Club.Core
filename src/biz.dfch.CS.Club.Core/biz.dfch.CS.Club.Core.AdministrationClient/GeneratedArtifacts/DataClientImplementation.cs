@@ -10,6 +10,56 @@
 namespace LightSwitchApplication.Implementation
 {
     
+    #region MemberData
+    [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/ApplicationData.Implementation")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "12.1.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class MemberData :
+        global::LightSwitchApplication.MemberData.DetailsClass.IImplementation
+    {
+        partial void OnIdChanged()
+        {
+            this.___OnPropertyChanged("Id");
+        }
+        
+        partial void OnParametersTypeChanged()
+        {
+            this.___OnPropertyChanged("ParametersType");
+        }
+        
+        partial void OnParametersChanged()
+        {
+            this.___OnPropertyChanged("Parameters");
+        }
+        
+        partial void OnCreatedByChanged()
+        {
+            this.___OnPropertyChanged("CreatedBy");
+        }
+        
+        partial void OnCreatedChanged()
+        {
+            this.___OnPropertyChanged("Created");
+        }
+        
+        partial void OnModifiedByChanged()
+        {
+            this.___OnPropertyChanged("ModifiedBy");
+        }
+        
+        partial void OnModifiedChanged()
+        {
+            this.___OnPropertyChanged("Modified");
+        }
+        
+        partial void OnRowVersionChanged()
+        {
+            this.___OnPropertyChanged("RowVersion");
+        }
+        
+    }
+    #endregion
+    
     #region Member
     [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/ApplicationData.Implementation")]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "12.1.0.0")]
@@ -132,6 +182,10 @@ namespace LightSwitchApplication.Implementation
     {
         protected override global::Microsoft.LightSwitch.Internal.IEntityImplementation CreateEntityImplementation<T>()
         {
+            if (typeof(T) == typeof(global::LightSwitchApplication.MemberData))
+            {
+                return new global::LightSwitchApplication.Implementation.MemberData();
+            }
             if (typeof(T) == typeof(global::LightSwitchApplication.Member))
             {
                 return new global::LightSwitchApplication.Implementation.Member();
@@ -185,6 +239,10 @@ namespace LightSwitchApplication.Implementation
     {
         global::System.Type global::Microsoft.LightSwitch.Internal.ITypeMappingProvider.GetImplementationType(global::System.Type definitionType)
         {
+            if (typeof(global::LightSwitchApplication.MemberData) == definitionType)
+            {
+                return typeof(global::LightSwitchApplication.Implementation.MemberData);
+            }
             if (typeof(global::LightSwitchApplication.Member) == definitionType)
             {
                 return typeof(global::LightSwitchApplication.Implementation.Member);

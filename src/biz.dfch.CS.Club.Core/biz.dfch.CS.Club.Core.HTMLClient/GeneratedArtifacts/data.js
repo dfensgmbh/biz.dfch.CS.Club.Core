@@ -13,6 +13,43 @@ window.myapp = msls.application;
         $DataServiceQuery = msls.DataServiceQuery,
         $toODataString = msls._toODataString;
 
+    function MemberData(entitySet) {
+        /// <summary>
+        /// Represents the MemberData entity type.
+        /// </summary>
+        /// <param name="entitySet" type="msls.EntitySet" optional="true">
+        /// The entity set that should contain this memberData.
+        /// </param>
+        /// <field name="Id" type="Number">
+        /// Gets or sets the id for this memberData.
+        /// </field>
+        /// <field name="ParametersType" type="String">
+        /// Gets or sets the parametersType for this memberData.
+        /// </field>
+        /// <field name="Parameters" type="String">
+        /// Gets or sets the parameters for this memberData.
+        /// </field>
+        /// <field name="CreatedBy" type="String">
+        /// Gets or sets the createdBy for this memberData.
+        /// </field>
+        /// <field name="Created" type="Date">
+        /// Gets or sets the created for this memberData.
+        /// </field>
+        /// <field name="ModifiedBy" type="String">
+        /// Gets or sets the modifiedBy for this memberData.
+        /// </field>
+        /// <field name="Modified" type="Date">
+        /// Gets or sets the modified for this memberData.
+        /// </field>
+        /// <field name="RowVersion" type="Array">
+        /// Gets or sets the rowVersion for this memberData.
+        /// </field>
+        /// <field name="details" type="msls.application.MemberData.Details">
+        /// Gets the details for this memberData.
+        /// </field>
+        $Entity.call(this, entitySet);
+    }
+
     function Member(entitySet) {
         /// <summary>
         /// Represents the Member entity type.
@@ -96,6 +133,9 @@ window.myapp = msls.application;
         /// <param name="dataWorkspace" type="msls.DataWorkspace">
         /// The data workspace that created this data service.
         /// </param>
+        /// <field name="MemberDatas" type="msls.EntitySet">
+        /// Gets the MemberDatas entity set.
+        /// </field>
         /// <field name="Members" type="msls.EntitySet">
         /// Gets the Members entity set.
         /// </field>
@@ -118,6 +158,17 @@ window.myapp = msls.application;
     };
 
     msls._addToNamespace("msls.application", {
+
+        MemberData: $defineEntity(MemberData, [
+            { name: "Id", type: Number },
+            { name: "ParametersType", type: String },
+            { name: "Parameters", type: String },
+            { name: "CreatedBy", type: String, isReadOnly: true },
+            { name: "Created", type: Date, isReadOnly: true },
+            { name: "ModifiedBy", type: String, isReadOnly: true },
+            { name: "Modified", type: Date, isReadOnly: true },
+            { name: "RowVersion", type: Array }
+        ]),
 
         Member: $defineEntity(Member, [
             { name: "Id", type: Number },
@@ -144,8 +195,16 @@ window.myapp = msls.application;
         ]),
 
         ApplicationData: $defineDataService(ApplicationData, lightSwitchApplication.rootUri + "/ApplicationData.svc", [
+            { name: "MemberDatas", elementType: MemberData },
             { name: "Members", elementType: Member }
         ], [
+            {
+                name: "MemberDatas_SingleOrDefault", value: function (Id) {
+                    return new $DataServiceQuery({ _entitySet: this.MemberDatas },
+                        lightSwitchApplication.rootUri + "/ApplicationData.svc" + "/MemberDatas(" + "Id=" + $toODataString(Id, "Int32?") + ")"
+                    );
+                }
+            },
             {
                 name: "Members_SingleOrDefault", value: function (Id) {
                     return new $DataServiceQuery({ _entitySet: this.Members },

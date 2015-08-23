@@ -68,5 +68,8 @@
     <ApplicationNavigationMethodLink
       Name="link"
       Method="!module/Methods[showBrowseMembers]" />
+    <ApplicationNavigationMethodLink
+      Name="link1"
+      Method="!module/Methods[showBrowseMemberDatas]" />
   </Application.NavigationItems>
 </Application>

@@ -48,7 +48,7 @@ namespace biz.dfch.CS.Club.Core.Server.Tests.Utilities
             
             var cl = new biz.dfch.CS.Club.Core.Server.Utilities.HttpClient();
             var result = cl.Invoke("GET", "http://www.example.com", null, null);
-            //var result = cl.Invoke("POST", "http://www.example.com", null, null);
+            //var task = cl.Invoke("POST", "http://www.example.com", null, null);
 
             Assert.IsNotNull(result);
         }

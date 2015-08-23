@@ -16,4 +16,10 @@
         Target="ServiceInterface:Member" />
     </EntityType.Attributes>
   </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:MemberData" />
+    </EntityType.Attributes>
+  </EntityType>
 </Application>

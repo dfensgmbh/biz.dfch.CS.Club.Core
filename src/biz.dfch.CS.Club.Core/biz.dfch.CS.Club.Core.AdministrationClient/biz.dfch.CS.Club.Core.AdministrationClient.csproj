@@ -243,6 +243,7 @@
   <ItemGroup>
     <Folder Include="Properties\ApplicationData\" />
     <Folder Include="Screens\" />
+    <Folder Include="UserCode\" />
   </ItemGroup>
   <ItemGroup>
     <_ClientBuildFile Include="default.htm">

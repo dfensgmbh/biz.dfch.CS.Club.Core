@@ -1,4 +1,22 @@
-﻿using System;
+﻿/**
+ *
+ *
+ * Copyright 2015 Ronald Rink, d-fens GmbH
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +25,7 @@ using biz.dfch.CS.Club.Core.Server.ApplicationData.Members;
 using Microsoft.LightSwitch;
 using Microsoft.LightSwitch.Security.Server;
 using biz.dfch.CS.Club.Core.Server.Utilities;
+using biz.dfch.CS.Club.Core.Server.ApplicationData.MemberDatas;
 
 namespace LightSwitchApplication
 {
@@ -68,13 +87,12 @@ namespace LightSwitchApplication
                         , 
                         Roles = ctx.Application.User.Roles
                         , 
-                        Permissions = ctx.Application.User.EffectivePermissions 
-                    });
-                if (controller.Inserting(entity))
-                {
-                    ctx.DataWorkspace.ApplicationData.SaveChanges();
-                }
-                else
+                        Permissions = ctx.Application.User.EffectivePermissions
+                    }
+                    ,
+                    ctx.DataWorkspace.ApplicationData
+                    );
+                if (!controller.Inserting(entity))
                 {
                     throw new ArgumentException("Members_Inserting FAILED. Cannot save changes.", "Members_Inserting");
                 }
@@ -111,7 +129,109 @@ namespace LightSwitchApplication
                         Roles = ctx.Application.User.Roles
                         ,
                         Permissions = ctx.Application.User.EffectivePermissions
-                    });
+                    }
+                    ,
+                    ctx.DataWorkspace.ApplicationData
+                    );
+                controller.Inserted(entity);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                if (isCtxCreated && null != ctx && !ctx.IsDisposed)
+                {
+                    ctx.Dispose();
+                }
+            }
+        }
+
+        partial void MemberDatas_CanInsert(ref bool result)
+        {
+            result = CheckPermission();
+        }
+
+        partial void MemberDatas_CanDelete(ref bool result)
+        {
+            result = CheckPermission();
+        }
+
+        partial void MemberDatas_CanRead(ref bool result)
+        {
+            result = CheckPermission();
+        }
+
+        partial void MemberDatas_CanUpdate(ref bool result)
+        {
+            result = CheckPermission();
+        }
+
+        partial void MemberDatas_Inserting(MemberData entity)
+        {
+            var isCtxCreated = false;
+            var ctx = ServerApplicationContext.Current;
+            try
+            {
+                if (null == ctx)
+                {
+                    isCtxCreated = true;
+                    ctx = ServerApplicationContext.CreateContext();
+                }
+                var controller = new MemberDatasController(
+                    new Identity()
+                    {
+                        Username = ctx.Application.User.Name
+                        ,
+                        Roles = ctx.Application.User.Roles
+                        ,
+                        Permissions = ctx.Application.User.EffectivePermissions
+                    }
+                    ,
+                    ctx.DataWorkspace.ApplicationData
+                    );
+                if (!controller.Inserting(entity))
+                {
+                    throw new ArgumentException("MemberDatas_Inserting FAILED. Cannot save changes.", "MemberDatas_Inserting");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                if (isCtxCreated && null != ctx && !ctx.IsDisposed)
+                {
+                    ctx.Dispose();
+                }
+            }
+        }
+
+        partial void MemberDatas_Inserted(MemberData entity)
+        {
+            var isCtxCreated = false;
+            var ctx = ServerApplicationContext.Current;
+            try
+            {
+                if (null == ctx)
+                {
+                    isCtxCreated = true;
+                    ctx = ServerApplicationContext.CreateContext();
+                }
+                var controller = new MemberDatasController(
+                    new Identity()
+                    {
+                        Username = ctx.Application.User.Name
+                        ,
+                        Roles = ctx.Application.User.Roles
+                        ,
+                        Permissions = ctx.Application.User.EffectivePermissions
+                    }
+                    ,
+                    ctx.DataWorkspace.ApplicationData
+                    );
                 controller.Inserted(entity);
             }
             catch (Exception ex)

@@ -60,6 +60,42 @@ namespace LightSwitchApplication
         #region Server Interceptions Points
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void MemberDatas_CanInsert(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void MemberDatas_CanUpdate(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void MemberDatas_CanDelete(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void MemberDatas_CanRead(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void MemberDatas_Inserting(global::LightSwitchApplication.MemberData entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void MemberDatas_Inserted(global::LightSwitchApplication.MemberData entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void MemberDatas_Updating(global::LightSwitchApplication.MemberData entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void MemberDatas_Updated(global::LightSwitchApplication.MemberData entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void MemberDatas_Deleting(global::LightSwitchApplication.MemberData entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void MemberDatas_Deleted(global::LightSwitchApplication.MemberData entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void MemberDatas_Validate(global::LightSwitchApplication.MemberData entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void MemberDatas_Filter(ref global::System.Linq.Expressions.Expression<global::System.Func<global::LightSwitchApplication.MemberData, bool>> filter);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void Members_CanInsert(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -132,6 +168,82 @@ namespace LightSwitchApplication
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1810:InitializeReferenceTypeStaticFieldsInline")]
             static DetailsClass()
             {
+            }
+            
+            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.ApplicationDataService, global::LightSwitchApplication.MemberData>
+                __MemberDatasEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.ApplicationDataService, global::LightSwitchApplication.MemberData>(
+                    "MemberDatas",
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__MemberDatas_CanInsert,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__MemberDatas_CanUpdate,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__MemberDatas_CanDelete,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__MemberDatas_CanRead,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__MemberDatas_Inserting,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__MemberDatas_Inserted,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__MemberDatas_Updating,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__MemberDatas_Updated,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__MemberDatas_Deleting,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__MemberDatas_Deleted,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__MemberDatas_Validate,
+                    global::LightSwitchApplication.ApplicationDataService.DetailsClass.__MemberDatas_Filter);
+            private static bool __MemberDatas_CanInsert(global::LightSwitchApplication.ApplicationDataService d)
+            {
+                bool result = true;
+                d.MemberDatas_CanInsert(ref result);
+                return result;
+            }
+            private static bool __MemberDatas_CanUpdate(global::LightSwitchApplication.ApplicationDataService d)
+            {
+                bool result = true;
+                d.MemberDatas_CanUpdate(ref result);
+                return result;
+            }
+            private static bool __MemberDatas_CanDelete(global::LightSwitchApplication.ApplicationDataService d)
+            {
+                bool result = true;
+                d.MemberDatas_CanDelete(ref result);
+                return result;
+            }
+            private static bool __MemberDatas_CanRead(global::LightSwitchApplication.ApplicationDataService d)
+            {
+                bool result = true;
+                d.MemberDatas_CanRead(ref result);
+                return result;
+            }
+            private static void __MemberDatas_Inserting(global::LightSwitchApplication.ApplicationDataService d, global::LightSwitchApplication.MemberData e)
+            {
+                d.MemberDatas_Inserting(e);
+            }
+            private static void __MemberDatas_Inserted(global::LightSwitchApplication.ApplicationDataService d, global::LightSwitchApplication.MemberData e)
+            {
+                d.MemberDatas_Inserted(e);
+            }
+            private static void __MemberDatas_Updating(global::LightSwitchApplication.ApplicationDataService d, global::LightSwitchApplication.MemberData e)
+            {
+                d.MemberDatas_Updating(e);
+            }
+            private static void __MemberDatas_Updated(global::LightSwitchApplication.ApplicationDataService d, global::LightSwitchApplication.MemberData e)
+            {
+                d.MemberDatas_Updated(e);
+            }
+            private static void __MemberDatas_Deleting(global::LightSwitchApplication.ApplicationDataService d, global::LightSwitchApplication.MemberData e)
+            {
+                d.MemberDatas_Deleting(e);
+            }
+            private static void __MemberDatas_Deleted(global::LightSwitchApplication.ApplicationDataService d, global::LightSwitchApplication.MemberData e)
+            {
+                d.MemberDatas_Deleted(e);
+            }
+            private static void __MemberDatas_Validate(global::LightSwitchApplication.ApplicationDataService d, global::LightSwitchApplication.MemberData e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
+            {
+                d.MemberDatas_Validate(e, r);
+            }
+            private static global::System.Linq.Expressions.Expression<global::System.Func<global::LightSwitchApplication.MemberData, bool>> __MemberDatas_Filter(global::LightSwitchApplication.ApplicationDataService d)
+            {
+                global::System.Linq.Expressions.Expression<global::System.Func<global::LightSwitchApplication.MemberData, bool>> filter = null;
+                d.MemberDatas_Filter(ref filter);
+                return filter;
             }
             
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
