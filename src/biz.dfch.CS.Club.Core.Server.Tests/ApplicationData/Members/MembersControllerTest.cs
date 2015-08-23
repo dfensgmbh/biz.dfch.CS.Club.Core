@@ -81,7 +81,8 @@ namespace biz.dfch.CS.Club.Core.Server.Tests.ApplicationData.Members
             roles.Add("AnonymousCanSubscribe");
             var permissions = new List<string>();
             permissions.Add("some-arbitrary-permission");
-            var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAnonymousRegistrationIdentity());
+            var applicationDataService = Mock.Create<ApplicationDataService>();
+            var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAnonymousRegistrationIdentity(), applicationDataService);
             Mock.Arrange(() => controller.AnonymousRegistration1(Arg.IsAny<Member>())).Returns(true).OccursOnce();
             Mock.Arrange(() => controller.AdminRegistration(Arg.IsAny<Member>())).Returns(false).OccursNever();
 
@@ -101,7 +102,8 @@ namespace biz.dfch.CS.Club.Core.Server.Tests.ApplicationData.Members
             Mock.Arrange(() => entity.Created).Returns(DateTimeOffset.Now);
             Mock.Arrange(() => entity.Modified).Returns(DateTimeOffset.Now);
 
-            var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAdminRegistrationIdentity());
+            var applicationDataService = Mock.Create<ApplicationDataService>();
+            var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAdminRegistrationIdentity(), applicationDataService);
             Mock.Arrange(() => controller.AnonymousRegistration1(Arg.IsAny<Member>())).Returns(false).OccursNever();
             Mock.Arrange(() => controller.AdminRegistration(Arg.IsAny<Member>())).Returns(true).OccursOnce();
 
@@ -118,7 +120,8 @@ namespace biz.dfch.CS.Club.Core.Server.Tests.ApplicationData.Members
         {
             // Arrange
             var entity = Mock.Create<Member>();
-            var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAnonymousRegistrationIdentity());
+            var applicationDataService = Mock.Create<ApplicationDataService>();
+            var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAnonymousRegistrationIdentity(), applicationDataService);
             Mock.Arrange(() => controller.AnonymousRegistration1(Arg.IsAny<Member>())).CallOriginal().MustBeCalled();
 
             // Act
@@ -134,7 +137,8 @@ namespace biz.dfch.CS.Club.Core.Server.Tests.ApplicationData.Members
             entity.MobileNumber = "2799912345";
             Mock.Arrange(() => entity.Created).Returns(DateTimeOffset.Now);
             Mock.Arrange(() => entity.Modified).Returns(DateTimeOffset.Now);
-            var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAnonymousRegistrationIdentity());
+            var applicationDataService = Mock.Create<ApplicationDataService>();
+            var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAnonymousRegistrationIdentity(), applicationDataService);
             Mock.Arrange(() => controller.AnonymousRegistration1(Arg.IsAny<Member>())).CallOriginal().MustBeCalled();
 
             // Act
@@ -158,13 +162,15 @@ namespace biz.dfch.CS.Club.Core.Server.Tests.ApplicationData.Members
             entity.MobileNumber = "2799912345";
             //Mock.Arrange(() => entity.Created).Returns(DateTimeOffset.Now);
             //Mock.Arrange(() => entity.Modified).Returns(DateTimeOffset.Now);
-            var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAnonymousRegistrationIdentity());
+            var applicationDataService = Mock.Create<ApplicationDataService>();
+            var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAnonymousRegistrationIdentity(), applicationDataService);
 
             var provider = Mock.Create<IShortMessageServiceProvider>();
             Mock.Arrange(() => provider.SendMessage(Arg.IsAny<IShortMessage>())).IgnoreInstance().Returns("arbitrary-message-id").MustBeCalled();
             Mock.Arrange(() => provider.HasError()).IgnoreInstance().Returns(false).MustBeCalled();
 
             // Act
+            // DFTODO Arrange for ServerApplicationContext first - otherwise exception will be thrown
             var result = controller.AnonymousRegistration2(entity);
 
             // Assert
@@ -182,7 +188,8 @@ namespace biz.dfch.CS.Club.Core.Server.Tests.ApplicationData.Members
             var entity = Mock.Create<Member>();
             entity.MobileNumber = "invalid-number";
             Mock.Arrange(() => entity.Delete()).MustBeCalled();
-            var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAnonymousRegistrationIdentity());
+            var applicationDataService = Mock.Create<ApplicationDataService>();
+            var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAnonymousRegistrationIdentity(), applicationDataService);
 
             var provider = Mock.Create<IShortMessageServiceProvider>();
             Mock.Arrange(() => provider.SendMessage(Arg.IsAny<IShortMessage>())).IgnoreInstance().Returns<string>(null).MustBeCalled();
@@ -205,7 +212,8 @@ namespace biz.dfch.CS.Club.Core.Server.Tests.ApplicationData.Members
             var entity = Mock.Create<Member>();
             entity.SubscriptionType = "invalid-subscription-type";
 
-            var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAdminRegistrationIdentity());
+            var applicationDataService = Mock.Create<ApplicationDataService>();
+            var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAnonymousRegistrationIdentity(), applicationDataService);
             Mock.Arrange(() => controller.AdminRegistration(Arg.IsAny<Member>())).CallOriginal().MustBeCalled();
 
             // Act
@@ -224,7 +232,8 @@ namespace biz.dfch.CS.Club.Core.Server.Tests.ApplicationData.Members
             Mock.Arrange(() => entity.Created).Returns(DateTimeOffset.Now);
             Mock.Arrange(() => entity.Modified).Returns(DateTimeOffset.Now);
             Mock.Arrange(() => entity.SubscriptionType).Returns("FullPerson");
-            var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAdminRegistrationIdentity());
+            var applicationDataService = Mock.Create<ApplicationDataService>();
+            var controller = Mock.Create<MembersController>(Behavior.CallOriginal, GetAnonymousRegistrationIdentity(), applicationDataService);
             Mock.Arrange(() => controller.AdminRegistration(Arg.IsAny<Member>())).CallOriginal().MustBeCalled();
 
             // Act
