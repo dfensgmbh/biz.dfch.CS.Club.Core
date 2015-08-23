@@ -32,20 +32,6 @@ namespace biz.dfch.CS.Club.Core.Server.Tests.OdataServices.Clickatell
         [TestMethod]
         public void DeserializingJsonToClickatellJsonCallbackSucceeds()
         {
-            string jsonTemplate = @"{
-                ""data"": 
-	                {
-		                ""apiId"" : {0},
-		                ""moMessageId"" : {1},
-		                ""from"" : {2},
-		                ""to"" : {3},
-		                ""timestamp"" : {4},
-		                ""charset"" : {5},
-		                ""udh"" : {6},
-		                ""text"" : {7}
-	                }
-                }
-                ";
             var apiId = 123456;
             var moMessageId = "abcdef1234567890abcdef1234567890";
             var from = "27821234567";
@@ -54,15 +40,36 @@ namespace biz.dfch.CS.Club.Core.Server.Tests.OdataServices.Clickatell
             var charset = "ISO-8859-1";
             var udh = "%05%00%03%0a%02%02";
             var text = "I+am+a+message";
-            var json = String.Format(jsonTemplate, apiId, moMessageId, from, to, timestamp, charset, udh, text);
+            string json = @"{
+                ""data"": 
+	                {
+		                ""apiId"" : " + apiId + @",
+		                ""moMessageId"" : """ + moMessageId + @""",
+		                ""from"" : """ + from + @""",
+		                ""to"" : """ + to + @""",
+		                ""timestamp"" : """ + timestamp + @""",
+		                ""charset"" : """ + charset + @""",
+		                ""udh"" : """ + udh + @""",
+		                ""text"" : """ + text + @"""
+	                }
+                }";
             var settings = new Newtonsoft.Json.JsonSerializerSettings();
             settings.MissingMemberHandling = Newtonsoft.Json.MissingMemberHandling.Error;
 
-            // DFTODO wrong assembly version (v7 vs v6) is referenced. Therefore the test fails.
             var result = Newtonsoft.Json.JsonConvert.DeserializeObject<ClickatellJsonCallback>(json, settings);
-            
+
             Assert.IsNotNull(result);
             Assert.IsInstanceOfType(result, typeof(ClickatellJsonCallback));
+            Assert.IsNotNull(result.data);
+            Assert.IsInstanceOfType(result.data, typeof(ClickatellJsonCallbackData));
+            Assert.AreEqual(apiId, result.data.apiId);
+            Assert.AreEqual(moMessageId, result.data.moMessageId);
+            Assert.AreEqual(from, result.data.from);
+            Assert.AreEqual(to, result.data.to);
+            Assert.AreEqual(DateTimeOffset.Parse(timestamp), result.data.timestamp);
+            Assert.AreEqual(charset, result.data.charset);
+            Assert.AreEqual(udh, result.data.udh);
+            Assert.AreEqual(text, result.data.text);
         }
     }
 }
