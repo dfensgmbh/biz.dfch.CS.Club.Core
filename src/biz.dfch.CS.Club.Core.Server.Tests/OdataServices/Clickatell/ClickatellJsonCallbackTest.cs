@@ -32,6 +32,7 @@ namespace biz.dfch.CS.Club.Core.Server.Tests.OdataServices.Clickatell
         [TestMethod]
         public void DeserializingJsonToClickatellJsonCallbackSucceeds()
         {
+            // see ClickatellJsonCallback for readable JSON structure
             var apiId = 123456;
             var moMessageId = "abcdef1234567890abcdef1234567890";
             var from = "27821234567";

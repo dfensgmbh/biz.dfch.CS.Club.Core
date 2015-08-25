@@ -109,33 +109,6 @@ namespace biz.dfch.CS.Club.Core.Server.OdataServices.Clickatell
             return StatusCode(HttpStatusCode.NotImplemented);
         }
 
-        // Working POST request for defined model:
-        //POST http://localhost:50515/api/ClickatellCallback.svc/ClickatellJsonCallbacks() HTTP/1.1
-        //Accept: text/html, application/xhtml+xml, */*
-        //Accept-Language: en-US
-        //User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko
-        //Accept-Encoding: gzip, deflate
-        //Connection: Keep-Alive
-        //Host: localhost:50515
-        //Pragma: no-cache
-        //Content-Type: application/json
-        //Content-Length: 281
-        //Cookie: msls-client-parameters=preferredLanguage=en-US; ASP.NET_SessionId=zsevhisy4ble0pqncl1txsne
-
-        //  {
-        //    "data": 
-        //    {
-        //      "apiId": 12345,
-        //      "moMessageId": "abcdef1234567890abcdef1234567890",
-        //      "from": "27821234567",
-        //      "to": "35050: keyword",
-        //      "timestamp": "2014-07-30T15:57:03+02:00",
-        //      "charset": "ISO-8859-1",
-        //      "udh": "%05%00%03%0a%02%02",
-        //      "text": "I+am+a+message"
-        //    }
-        //  }
-
         // POST: odata/ClickatellJsonCallbacks
         public async Task<IHttpActionResult> Post(ClickatellJsonCallback clickatellJsonCallback)
         {

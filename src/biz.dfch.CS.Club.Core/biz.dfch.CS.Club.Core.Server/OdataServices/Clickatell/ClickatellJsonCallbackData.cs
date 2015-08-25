@@ -23,23 +23,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/*
- * 
-    {
-     "data": 
-        {
-            "apiId" : 123456,
-            "moMessageId" : "abcdef1234567890abcdef1234567890",
-            "from" : "27821234567",
-            "to" : "35050:keyword",
-            "timestamp" : "2014-07-30 15:57:03",
-            "charset" : "ISO-8859-1",
-            "udh" : "%05%00%03%0a%02%02",
-            "text" : "I+am+a+message"
-        }
-    }
- * 
- */
 namespace biz.dfch.CS.Club.Core.Server.OdataServices.Clickatell
 {
     public class ClickatellJsonCallbackData
