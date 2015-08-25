@@ -170,7 +170,6 @@ namespace biz.dfch.CS.Club.Core.Server.Tests.ApplicationData.Members
             Mock.Arrange(() => provider.HasError()).IgnoreInstance().Returns(false).MustBeCalled();
 
             // Act
-            // DFTODO Arrange for ServerApplicationContext first - otherwise exception will be thrown
             var result = controller.AnonymousRegistration2(entity);
 
             // Assert

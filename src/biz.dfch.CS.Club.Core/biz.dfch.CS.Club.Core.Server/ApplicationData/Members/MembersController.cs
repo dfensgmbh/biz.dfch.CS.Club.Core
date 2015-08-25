@@ -78,7 +78,8 @@ namespace biz.dfch.CS.Club.Core.Server.ApplicationData.Members
             }
             else
             {
-                var memberData = ServerApplicationContext.Current.DataWorkspace.ApplicationData.MemberDatas.AddNew();
+                var memberData = _applicationDataService.MemberDatas.AddNew();
+                memberData.Delete();
                 fReturn = true;
             }
             return fReturn;
